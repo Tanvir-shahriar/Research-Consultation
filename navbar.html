@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimized Multifunctional Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'hsl(220, 91%, 17%)',
+                        'primary-foreground': 'hsl(0, 0%, 98%)',
+                        accent: 'hsl(217, 91%, 60%)',
+                        'accent-foreground': 'hsl(0, 0%, 98%)',
+                        muted: 'hsl(220, 14%, 96%)',
+                        'muted-foreground': 'hsl(220, 9%, 46%)',
+                        border: 'hsl(220, 13%, 91%)',
+                        background: 'hsl(0, 0%, 100%)',
+                        foreground: 'hsl(220, 13%, 18%)',
+                        card: 'hsl(0, 0%, 100%)',
+                        'search-overlay': 'hsl(220, 43%, 11%, 0.4)',
+                    },
+                    keyframes: {
+                        'fade-in': { from: { opacity: '0' }, to: { opacity: '1' } },
+                        'scale-in': { from: { opacity: '0', transform: 'scale(0.95)' }, to: { opacity: '1', transform: 'scale(1)' } },
+                        'slide-in': { from: { transform: 'translateX(-100%)' }, to: { transform: 'translateX(0)' } },
+                    },
+                    animation: {
+                        'fade-in': 'fade-in 0.2s ease-out',
+                        'scale-in': 'scale-in 0.2s ease-out',
+                        'slide-in': 'slide-in 0.3s ease-out',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: hsl(220, 9%, 46%); border-radius: 3px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: hsl(220, 13%, 18%); }
+
+        .glass-effect {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            background-color: hsla(0, 0%, 100%, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground">
+
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 lg:px-6">
+            <div class="flex items-center justify-between h-16">
+                <a href="#" class="flex-shrink-0 flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                        <span class="text-primary-foreground font-bold text-sm">L</span>
+                    </div>
+                    <span class="text-xl font-bold text-foreground">Logo</span>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-foreground hover:text-accent transition-colors duration-200 font-medium">Home</a>
+                    <a href="#" class="text-foreground hover:text-accent transition-colors duration-200 font-medium">Products</a>
+                    <a href="#" class="text-foreground hover:text-accent transition-colors duration-200 font-medium">Solutions</a>
+                    <a href="#" class="text-foreground hover:text-accent transition-colors duration-200 font-medium">About</a>
+                    <a href="#" class="text-foreground hover:text-accent transition-colors duration-200 font-medium">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <button id="searchBtn" class="hidden sm:flex items-center space-x-2 min-w-[200px] justify-start text-muted-foreground hover:text-foreground border border-border bg-muted rounded-lg px-3 py-2 transition-colors duration-200">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        <span class="text-sm">Search...</span>
+                        <kbd class="ml-auto px-2 py-1 text-xs bg-background rounded text-muted-foreground">⌘K</kbd>
+                    </button>
+                    <button id="mobileSearchBtn" class="sm:hidden p-2 hover:bg-muted rounded-lg transition-colors">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </button>
+                    <button id="mobileMenuBtn" class="md:hidden p-2 hover:bg-muted rounded-lg transition-colors">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="searchModal" class="fixed inset-0 z-[100] hidden animate-fade-in">
+        <div id="searchBackdrop" class="fixed inset-0 bg-search-overlay glass-effect z-10"></div>
+        <div class="relative z-20 flex items-start justify-center min-h-screen pt-[15vh] px-4">
+            <div class="w-full max-w-2xl bg-card border border-border rounded-xl shadow-2xl animate-scale-in">
+                <div class="flex items-center p-4 border-b border-border">
+                    <svg class="h-5 w-5 text-muted-foreground mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <input id="searchInput" type="text" placeholder="Search for anything..." class="flex-1 border-0 bg-transparent text-lg placeholder:text-muted-foreground focus:outline-none" autocomplete="off" />
+                    <button id="closeSearch" class="ml-2 p-2 hover:bg-muted rounded-lg transition-colors"><svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                </div>
+                <div id="searchResults" class="max-h-96 overflow-y-auto custom-scrollbar p-2"></div>
+                <div class="flex items-center justify-between p-4 border-t border-border bg-muted/30 text-xs text-muted-foreground">
+                    <div class="flex items-center space-x-1"><kbd class="px-2 py-1 bg-background rounded border">↵</kbd><span>to select</span></div>
+                    <div class="flex items-center space-x-1"><kbd class="px-2 py-1 bg-background rounded border">esc</kbd><span>to close</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobileMenu" class="fixed inset-0 z-[90] hidden">
+        <div id="mobileBackdrop" class="fixed inset-0 bg-search-overlay glass-effect transition-opacity duration-300"></div>
+        <div id="mobilePanel" class="fixed top-0 left-0 bottom-0 w-80 max-w-[85vw] bg-card border-r border-border shadow-2xl transform -translate-x-full transition-transform duration-300 ease-out">
+            <div class="flex items-center justify-between p-6 border-b border-border">
+                 <a href="#" class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                        <span class="text-primary-foreground font-bold text-sm">L</span>
+                    </div>
+                    <span class="text-xl font-bold text-foreground">Logo</span>
+                </a>
+                <button id="closeMobile" class="p-2 hover:bg-muted rounded-lg transition-colors">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="py-6 px-3">
+                <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Home</span></a>
+                <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Products</span></a>
+                <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Solutions</span></a>
+                <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">About</span></a>
+                <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Contact</span></a>
+            </div>
+        </div>
+    </div>
+    
+    <template id="searchResultTemplate">
+        <button class="search-result-item w-full flex items-center p-3 rounded-lg hover:bg-muted transition-colors duration-150 text-left group">
+            <div class="flex-shrink-0 w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mr-3 group-hover:bg-accent/20 transition-colors">
+                <svg class="h-5 w-5 text-accent icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+                <p class="font-medium text-foreground group-hover:text-accent transition-colors result-title"></p>
+                <p class="text-sm text-muted-foreground result-type"></p>
+            </div>
+        </button>
+    </template>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- DOM Elements ---
+            const dom = {
+                navbar: document.getElementById('navbar'),
+                searchModal: document.getElementById('searchModal'),
+                searchInput: document.getElementById('searchInput'),
+                searchResults: document.getElementById('searchResults'),
+                mobileMenu: document.getElementById('mobileMenu'),
+                mobilePanel: document.getElementById('mobilePanel'),
+                searchResultTemplate: document.getElementById('searchResultTemplate'),
+            };
+
+            // --- Data & Icons ---
+            const searchData = [
+                { id: 1, title: 'Getting Started Guide', type: 'Documentation', icon: 'document' },
+                { id: 2, title: 'Team Management', type: 'Feature', icon: 'users' },
+                { id: 3, title: 'Account Settings', type: 'Settings', icon: 'settings' },
+                { id: 4, title: 'API Documentation', type: 'Documentation', icon: 'document' },
+            ];
+            
+            const icons = {
+                document: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>',
+                users: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>',
+                settings: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>',
+            };
+
+            // --- Utility Functions ---
+            const debounce = (func, delay) => {
+                let timeoutId;
+                return (...args) => {
+                    clearTimeout(timeoutId);
+                    timeoutId = setTimeout(() => func.apply(this, args), delay);
+                };
+            };
+
+            // --- State Management ---
+            const toggleModal = (modalElement, show) => {
+                modalElement.classList.toggle('hidden', !show);
+                document.body.style.overflow = show ? 'hidden' : 'auto';
+                if(show) dom.searchInput.focus();
+            };
+
+            const toggleMobileMenu = (show) => {
+                if (show) {
+                    dom.mobileMenu.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    requestAnimationFrame(() => dom.mobilePanel.classList.remove('-translate-x-full'));
+                } else {
+                    dom.mobilePanel.classList.add('-translate-x-full');
+                    setTimeout(() => {
+                        dom.mobileMenu.classList.add('hidden');
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                }
+            };
+
+            // --- Rendering ---
+            const renderSearchResults = (query) => {
+                dom.searchResults.innerHTML = ''; 
+                const lowerCaseQuery = query.toLowerCase();
+                
+                const filteredResults = searchData.filter(item =>
+                    item.title.toLowerCase().includes(lowerCaseQuery) ||
+                    item.type.toLowerCase().includes(lowerCaseQuery)
+                );
+
+                if (query && filteredResults.length > 0) {
+                    const fragment = document.createDocumentFragment();
+                    filteredResults.forEach(result => {
+                        const clone = dom.searchResultTemplate.content.cloneNode(true);
+                        clone.querySelector('.search-result-item').dataset.id = result.id;
+                        clone.querySelector('.icon-svg').innerHTML = icons[result.icon] || icons.document;
+                        clone.querySelector('.result-title').textContent = result.title;
+                        clone.querySelector('.result-type').textContent = result.type;
+                        fragment.appendChild(clone);
+                    });
+                    dom.searchResults.appendChild(fragment);
+                } else {
+                    const message = query ? 'No results found' : 'Start typing to search...';
+                    dom.searchResults.innerHTML = `<p class="p-8 text-center text-muted-foreground">${message}</p>`;
+                }
+            };
+            
+            const debouncedRender = debounce(renderSearchResults, 250);
+
+            // --- Event Listeners ---
+            window.addEventListener('scroll', () => {
+                dom.navbar.classList.toggle('glass-effect', window.scrollY > 10);
+                dom.navbar.classList.toggle('border-b', window.scrollY > 10);
+                dom.navbar.classList.toggle('border-border', window.scrollY > 10);
+            });
+
+            document.getElementById('searchBtn').addEventListener('click', () => toggleModal(dom.searchModal, true));
+            document.getElementById('mobileSearchBtn').addEventListener('click', () => toggleModal(dom.searchModal, true));
+            document.getElementById('closeSearch').addEventListener('click', () => toggleModal(dom.searchModal, false));
+            document.getElementById('searchBackdrop').addEventListener('click', () => toggleModal(dom.searchModal, false));
+            
+            document.getElementById('mobileMenuBtn').addEventListener('click', () => toggleMobileMenu(true));
+            document.getElementById('closeMobile').addEventListener('click', () => toggleMobileMenu(false));
+            document.getElementById('mobileBackdrop').addEventListener('click', () => toggleMobileMenu(false));
+            
+            dom.mobilePanel.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => toggleMobileMenu(false));
+            });
+
+            dom.searchInput.addEventListener('input', (e) => debouncedRender(e.target.value));
+
+            dom.searchResults.addEventListener('click', (e) => {
+                const resultItem = e.target.closest('.search-result-item');
+                if (resultItem) {
+                    console.log('Clicked item ID:', resultItem.dataset.id);
+                    toggleModal(dom.searchModal, false);
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                    e.preventDefault();
+                    toggleModal(dom.searchModal, dom.searchModal.classList.contains('hidden'));
+                }
+                if (e.key === 'Escape') {
+                    if (!dom.searchModal.classList.contains('hidden')) toggleModal(dom.searchModal, false);
+                    if (!dom.mobileMenu.classList.contains('hidden')) toggleMobileMenu(false);
+                }
+            });
+
+            // Initial render for search placeholder
+            renderSearchResults('');
+        });
+    </script>
+
+</body>
+</html>
