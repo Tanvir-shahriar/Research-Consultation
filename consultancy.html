@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Free Academic Consultation | Premier Scholar Solutions</title>
     <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/6e8799c987.js" crossorigin="anonymous"></script>
     <meta name="description" content="Elevate your research with expert academic consulting. Book your free consultation for manuscript editing, PhD guidance, and publication support.">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -68,62 +69,26 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
 
-        .gradient-primary {
-            background: var(--gradient-primary);
-        }
+        .gradient-primary { background: var(--gradient-primary); }
+        .gradient-hero { background: var(--gradient-hero); }
+        .shadow-elegant { box-shadow: var(--shadow-elegant); }
+        .shadow-glow { box-shadow: var(--shadow-glow); }
+        .transition-smooth { transition: var(--transition-smooth); }
 
-        .gradient-hero {
-            background: var(--gradient-hero);
-        }
+        .hover-scale { transition: var(--transition-smooth); }
+        .hover-scale:hover { transform: scale(1.05); }
 
-        .shadow-elegant {
-            box-shadow: var(--shadow-elegant);
-        }
-
-        .shadow-glow {
-            box-shadow: var(--shadow-glow);
-        }
-
-        .transition-smooth {
-            transition: var(--transition-smooth);
-        }
-
-        .hover-scale {
-            transition: var(--transition-smooth);
-        }
-
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
-
-        .animate-fade-in {
-            animation: fade-in 0.6s ease-out;
-        }
-
-        .animate-slide-up {
-            animation: slide-up 0.8s ease-out;
-        }
+        .animate-fade-in { animation: fade-in 0.6s ease-out; }
+        .animate-slide-up { animation: slide-up 0.8s ease-out; }
 
         @keyframes fade-in {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes slide-up {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .btn-hero {
@@ -131,64 +96,42 @@
             color: hsl(var(--primary-foreground));
             transition: var(--transition-smooth);
         }
-
         .btn-hero:hover {
             box-shadow: var(--shadow-glow);
             transform: scale(1.02);
         }
-
         .btn-gradient {
             background: var(--gradient-primary);
             color: hsl(var(--primary-foreground));
         }
-
         .btn-gradient:hover {
             box-shadow: var(--shadow-elegant);
             transform: scale(1.05);
         }
-
-        .input-focus:focus {
-            box-shadow: var(--shadow-glow);
-        }
-
-        .bg-primary-glow {
-            background-color: hsl(var(--primary) / 0.1);
-        }
-
-        .text-primary {
-            color: hsl(var(--primary));
-        }
-
-        .border-primary-20 {
-            border-color: hsl(var(--primary) / 0.2);
-        }
+        .input-focus:focus { box-shadow: var(--shadow-glow); }
+        .bg-primary-glow { background-color: hsl(var(--primary) / 0.1); }
+        .text-primary { color: hsl(var(--primary)); }
+        .border-primary-20 { border-color: hsl(var(--primary) / 0.2); }
 
         .toast {
             position: fixed;
             top: 20px;
             right: 20px;
             background: white;
-            border: 1px solid hsl(var(--border));
             border-radius: 8px;
             padding: 16px;
             box-shadow: var(--shadow-elegant);
             z-index: 1000;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateX(calc(100% + 20px));
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .toast.show {
-            transform: translateX(0);
-        }
-
-        .toast.success {
-            border-left: 4px solid hsl(var(--primary));
-        }
-
-        .toast.error {
-            border-left: 4px solid hsl(var(--destructive));
-        }
-
+        .toast.show { transform: translateX(0); }
+        .toast.success { border-left: 4px solid hsl(140, 65%, 55%); }
+        .toast.error { border-left: 4px solid hsl(var(--destructive)); }
+        
         .gradient-text {
             background: var(--gradient-primary);
             -webkit-background-clip: text;
@@ -207,34 +150,13 @@
                         ring: 'hsl(var(--ring))',
                         background: 'hsl(var(--background))',
                         foreground: 'hsl(var(--foreground))',
-                        primary: {
-                            DEFAULT: 'hsl(var(--primary))',
-                            foreground: 'hsl(var(--primary-foreground))'
-                        },
-                        secondary: {
-                            DEFAULT: 'hsl(var(--secondary))',
-                            foreground: 'hsl(var(--secondary-foreground))'
-                        },
-                        destructive: {
-                            DEFAULT: 'hsl(var(--destructive))',
-                            foreground: 'hsl(var(--destructive-foreground))'
-                        },
-                        muted: {
-                            DEFAULT: 'hsl(var(--muted))',
-                            foreground: 'hsl(var(--muted-foreground))'
-                        },
-                        accent: {
-                            DEFAULT: 'hsl(var(--accent))',
-                            foreground: 'hsl(var(--accent-foreground))'
-                        },
-                        popover: {
-                            DEFAULT: 'hsl(var(--popover))',
-                            foreground: 'hsl(var(--popover-foreground))'
-                        },
-                        card: {
-                            DEFAULT: 'hsl(var(--card))',
-                            foreground: 'hsl(var(--card-foreground))'
-                        }
+                        primary: { DEFAULT: 'hsl(var(--primary))', foreground: 'hsl(var(--primary-foreground))' },
+                        secondary: { DEFAULT: 'hsl(var(--secondary))', foreground: 'hsl(var(--secondary-foreground))' },
+                        destructive: { DEFAULT: 'hsl(var(--destructive))', foreground: 'hsl(var(--destructive-foreground))' },
+                        muted: { DEFAULT: 'hsl(var(--muted))', foreground: 'hsl(var(--muted-foreground))' },
+                        accent: { DEFAULT: 'hsl(var(--accent))', foreground: 'hsl(var(--accent-foreground))' },
+                        popover: { DEFAULT: 'hsl(var(--popover))', foreground: 'hsl(var(--popover-foreground))' },
+                        card: { DEFAULT: 'hsl(var(--card))', foreground: 'hsl(var(--card-foreground))' }
                     }
                 }
             }
@@ -242,36 +164,36 @@
     </script>
 </head>
 <body class="min-h-screen gradient-hero">
-    <div id="toast-container"></div>
+    <div id="toast-container" class="fixed top-5 right-5 z-50"></div>
 
     <section class="relative overflow-hidden">
-        <div class="container mx-auto px-6 py-20">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="animate-fade-in">
+        <div class="container mx-auto px-4 sm:px-6 py-16 lg:py-20">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div class="animate-fade-in text-center lg:text-left">
                     <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mb-6 gradient-primary text-white">
                         Expert Guidance Available
                     </div>
-                    <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                         Elevate Your Research with
                         <span class="gradient-text"> Expert Academic Guidance</span>
                     </h1>
-                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                    <p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
                         Receive premier academic consulting to navigate your research journey. Book a free consultation and learn how we can help you achieve publication success and academic excellence.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
                         <button class="btn-hero inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-md hover-scale">
                             <i data-lucide="calendar" class="mr-2 h-5 w-5"></i>
                             Book Free Consultation
                         </button>
-                        <a href="https://wa.me/15551234567" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md border border-gray-300 bg-white hover:bg-gray-50 transition-smooth hover-scale">
-                            <i data-lucide="message-square" class="mr-2 h-5 w-5"></i>
-                            Chat on WhatsApp
+                        <a href="https://wa.me/8801534236388" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md border border-gray-300 bg-white hover:bg-gray-50 transition-smooth hover-scale">
+                            <i class="fa-brands fa-whatsapp mr-2 text-2xl"></i>
+                             Chat on WhatsApp
                         </a>
                     </div>
-                    <div class="flex items-center gap-8 text-sm text-gray-500">
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-8 text-sm text-gray-500">
                         <div class="flex items-center gap-2">
                             <i data-lucide="users" class="w-4 h-4"></i>
-                            500+ Researchers Supported
+                            50+ Researchers Supported
                         </div>
                         <div class="flex items-center gap-2">
                             <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
@@ -285,21 +207,20 @@
                 </div>
                 <div class="animate-slide-up">
                     <img
-                        src="/src/assets/academic-hero.jpg"
+                        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&h=1080&q=80"
                         alt="Academic Consultancy"
                         class="rounded-2xl shadow-elegant hover-scale w-full h-auto"
-                        onerror="this.src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&h=1080&q=80'"
                     />
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 animate-fade-in">
-                <h2 class="text-4xl font-bold mb-6">Our Academic Services</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+    <section class="py-16 lg:py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16 animate-fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-6">Our Academic Services</h2>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
                     We specialize in providing comprehensive support for researchers and academics at every stage of their career.
                 </p>
             </div>
@@ -309,31 +230,31 @@
                         <div class="mx-auto mb-4 p-3 rounded-full bg-primary-glow w-fit">
                             <i data-lucide="file-text" class="w-8 h-8 text-primary"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Manuscript & Grant Writing</h3>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-4">Manuscript & Grant Writing</h3>
                     </div>
                     <p class="text-center text-base leading-relaxed text-gray-600">
                         Refine your papers and proposals to meet the highest standards of scholarly publication and funding bodies.
                     </p>
                 </div>
 
-                <div class="bg-white rounded-lg p-6 shadow-elegant hover-scale border-0 animate-fade-in">
+                <div class="bg-white rounded-lg p-6 shadow-elegant hover-scale border-0 animate-fade-in" style="animation-delay: 0.1s;">
                     <div class="text-center pb-4">
                         <div class="mx-auto mb-4 p-3 rounded-full bg-primary-glow w-fit">
                             <i data-lucide="graduation-cap" class="w-8 h-8 text-primary"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">PhD & Dissertation Support</h3>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-4">PhD & Dissertation Support</h3>
                     </div>
                     <p class="text-center text-base leading-relaxed text-gray-600">
                         Navigate your doctoral journey with expert guidance on research design, writing, and defense preparation.
                     </p>
                 </div>
 
-                <div class="bg-white rounded-lg p-6 shadow-elegant hover-scale border-0 animate-fade-in">
+                <div class="bg-white rounded-lg p-6 shadow-elegant hover-scale border-0 animate-fade-in" style="animation-delay: 0.2s;">
                     <div class="text-center pb-4">
                         <div class="mx-auto mb-4 p-3 rounded-full bg-primary-glow w-fit">
                             <i data-lucide="bar-chart-3" class="w-8 h-8 text-primary"></i>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Statistical Analysis</h3>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-4">Statistical Analysis</h3>
                     </div>
                     <p class="text-center text-base leading-relaxed text-gray-600">
                         Ensure the integrity of your findings with robust statistical consulting and data analysis services.
@@ -343,59 +264,46 @@
         </div>
     </section>
 
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-start">
+    <section id="form-section" class="py-16 lg:py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                 <div class="animate-fade-in">
-                    <h2 class="text-4xl font-bold mb-6">Book Your Free Consultation</h2>
-                    <p class="text-xl text-gray-600 mb-8">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-6">Book Your Free Consultation</h2>
+                    <p class="text-lg sm:text-xl text-gray-600 mb-8">
                         Ready to advance your academic career? Schedule a complimentary consultation with our scholarly experts.
                     </p>
                     
                     <div class="space-y-4 mb-8">
-                        <h3 class="text-2xl font-semibold mb-4">What You'll Get:</h3>
+                        <h3 class="text-xl sm:text-2xl font-semibold mb-4">What You'll Get:</h3>
                         <div class="flex items-start gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"></i>
+                            <i data-lucide="check-circle" class="w-5 h-5 text-primary mt-1 flex-shrink-0"></i>
                             <span class="text-lg">Free 30-minute strategy session</span>
                         </div>
-                        <div class="flex items-start gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"></i>
+                         <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-primary mt-1 flex-shrink-0"></i>
                             <span class="text-lg">Personalized research action plan</span>
                         </div>
                         <div class="flex items-start gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"></i>
+                            <i data-lucide="check-circle" class="w-5 h-5 text-primary mt-1 flex-shrink-0"></i>
                             <span class="text-lg">Targeted feedback on your project</span>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"></i>
-                            <span class="text-lg">Journal selection suggestions</span>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"></i>
-                            <span class="text-lg">Clear timeline for your goals</span>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-primary mt-0.5 flex-shrink-0"></i>
-                            <span class="text-lg">Ongoing support options</span>
                         </div>
                     </div>
 
                     <div class="p-6 bg-primary-glow rounded-xl border border-primary-20">
                         <h4 class="font-semibold mb-2 text-primary">🎯 Perfect For:</h4>
                         <p class="text-gray-600">
-                            PhD candidates, postdoctoral researchers, and faculty members seeking to enhance research quality, secure funding, and increase publication output.
+                            PhD candidates, postdoctoral researchers, and faculty members seeking to enhance research quality and increase publication output.
                         </p>
                     </div>
 
                     <div class="mt-8 p-4 bg-blue-50 rounded-lg">
                         <p class="text-sm text-center text-gray-600">
-                            <strong>Note:</strong> To enable form submissions, replace 'your-form-id' in the code with your actual 
-                            Formspree form ID from <a href="https://formspree.io" class="text-primary underline" target="_blank" rel="noopener">formspree.io</a>
+                            <strong>Note:</strong> Replace 'your-form-id' in the script with your actual Formspree ID from <a href="https://formspree.io" class="text-primary underline" target="_blank" rel="noopener">formspree.io</a> to enable submissions.
                         </p>
                     </div>
                 </div>
 
-                <div id="form" class="bg-white rounded-lg p-6 shadow-elegant border-0 animate-slide-up">
+                <div class="bg-white rounded-lg p-6 sm:p-8 shadow-elegant border-0 animate-slide-up">
                     <div class="mb-6">
                         <h3 class="text-2xl font-bold gradient-text">
                             Schedule Your Consultation
@@ -405,101 +313,34 @@
                         </p>
                     </div>
                     <form id="consultation-form" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-4">
+                        <div class="grid sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-sm font-medium mb-2">Full Name *</label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    placeholder="John Doe"
-                                    required
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-smooth input-focus"
-                                />
+                                <label for="name" class="block text-sm font-medium mb-2">Full Name *</label>
+                                <input type="text" id="name" name="name" placeholder="John Doe" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition-smooth input-focus" />
                             </div>
                             <div>
-                                <label class="block text-sm font-medium mb-2">Email Address *</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder="john.doe@university.edu"
-                                    required
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-smooth input-focus"
-                                />
-                            </div>
-                        </div>
-
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium mb-2">Institution</label>
-                                <input
-                                    type="text"
-                                    id="institution"
-                                    name="institution"
-                                    placeholder="Your University"
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-smooth input-focus"
-                                />
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium mb-2">Phone Number</label>
-                                <input
-                                    type="tel"
-                                    id="phone"
-                                    name="phone"
-                                    placeholder="(555) 123-4567"
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-smooth input-focus"
-                                />
-                            </div>
-                        </div>
-
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium mb-2">Service Needed</label>
-                                <input
-                                    type="text"
-                                    id="serviceType"
-                                    name="serviceType"
-                                    placeholder="e.g., Manuscript Editing"
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-smooth input-focus"
-                                />
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium mb-2">Field of Study</label>
-                                <input
-                                    type="text"
-                                    id="fieldOfStudy"
-                                    name="fieldOfStudy"
-                                    placeholder="e.g., Biochemistry"
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-smooth input-focus"
-                                />
+                                <label for="email" class="block text-sm font-medium mb-2">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="john.doe@university.edu" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition-smooth input-focus" />
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium mb-2">Your Research Goals *</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                placeholder="Tell us about your research, challenges, and academic goals..."
-                                rows="4"
-                                required
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-smooth input-focus resize-vertical"
-                            ></textarea>
+                            <label for="serviceType" class="block text-sm font-medium mb-2">Service Needed</label>
+                            <input type="text" id="serviceType" name="serviceType" placeholder="e.g., Manuscript Editing" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition-smooth input-focus" />
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-2">Your Research Goals *</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your research, challenges, and goals..." rows="4" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition-smooth input-focus"></textarea>
                         </div>
 
-                        <button
-                            type="submit"
-                            id="submit-btn"
-                            class="w-full btn-gradient inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md hover-scale"
-                        >
-                            <i data-lucide="mail" class="mr-2 h-5 w-5"></i>
+                        <button type="submit" id="submit-btn" class="w-full btn-gradient inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md hover-scale">
                             <span id="submit-text">Book My Free Consultation</span>
+                            <div id="spinner" class="hidden animate-spin rounded-full h-5 w-5 border-b-2 border-white ml-2"></div>
                         </button>
 
-                        <p class="text-sm text-gray-500 text-center">
-                            By submitting this form, you agree to receive communications from us. 
-                            Your information is secure and will never be shared.
+                        <p class="text-xs text-gray-500 text-center">
+                            By submitting, you agree to our terms. Your data is secure.
                         </p>
                     </form>
                 </div>
@@ -507,14 +348,14 @@
         </div>
     </section>
 
-    <section class="py-20 gradient-primary text-white">
-        <div class="container mx-auto px-6 text-center animate-fade-in">
-            <h2 class="text-4xl font-bold mb-6">Ready to Accelerate Your Academic Career?</h2>
-            <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+    <section class="py-16 lg:py-20 gradient-primary text-white">
+        <div class="container mx-auto px-4 sm:px-6 text-center animate-fade-in">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6">Ready to Accelerate Your Academic Career?</h2>
+            <p class="text-lg sm:text-xl mb-8 opacity-90 max-w-2xl mx-auto">
                 Join hundreds of successful researchers who have achieved their publication and career goals with our expert academic consulting.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md bg-white text-gray-900 hover:bg-gray-100 transition-smooth hover-scale">
+                <button onclick="document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md bg-white text-gray-900 hover:bg-gray-100 transition-smooth hover-scale">
                     <i data-lucide="calendar" class="mr-2 h-5 w-5"></i>
                     Schedule Free Call
                 </button>
@@ -525,7 +366,88 @@
             </div>
         </div>
     </section>
+    
+    <script>
+        // --- Lucide Icons ---
+        lucide.createIcons();
 
-    <script src="/consultancy.js"></script>
+        // --- Toast Notification ---
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            const icon = type === 'success' ? `<i data-lucide="check-circle-2" class="w-6 h-6 text-green-500"></i>` : `<i data-lucide="x-circle" class="w-6 h-6 text-red-500"></i>`;
+            
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `${icon} <p>${message}</p>`;
+            
+            container.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 100);
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toast.remove();
+                }, 500);
+            }, 4000);
+        }
+
+        // --- Formspree Submission ---
+        const form = document.getElementById('consultation-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const submitText = document.getElementById('submit-text');
+        const spinner = document.getElementById('spinner');
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            
+            // --- Replace with your Formspree Form ID ---
+            const FORMSPREE_ID = 'your-form-id';
+            // ---------------------------------------------
+            
+            if (FORMSPREE_ID === 'your-form-id') {
+                showToast("Please set your Formspree ID in the script.", "error");
+                return;
+            }
+
+            const data = new FormData(event.target);
+            
+            submitText.textContent = 'Submitting...';
+            spinner.classList.remove('hidden');
+            submitBtn.disabled = true;
+
+            try {
+                const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    showToast('Thank you! Your message has been sent.', 'success');
+                    form.reset();
+                } else {
+                    const responseData = await response.json();
+                    if (responseData.errors) {
+                        const errorMessage = responseData.errors.map(error => error.message).join(', ');
+                        showToast(`Submission failed: ${errorMessage}`, 'error');
+                    } else {
+                        showToast('Oops! Something went wrong.', 'error');
+                    }
+                }
+            } catch (error) {
+                showToast('Network error. Please try again.', 'error');
+            } finally {
+                submitText.textContent = 'Book My Free Consultation';
+                spinner.classList.add('hidden');
+                submitBtn.disabled = false;
+            }
+        }
+
+        form.addEventListener('submit', handleSubmit);
+    </script>
 </body>
 </html>
