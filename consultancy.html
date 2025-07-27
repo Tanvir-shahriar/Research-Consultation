@@ -3,115 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Free Academic Consultation | Premier Scholar Solutions</title>
+    <title>Book Free Academic Consultation | Apex Scholarly Solutions</title>
     <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/6e8799c987.js" crossorigin="anonymous"></script>
     <meta name="description" content="Elevate your research with expert academic consulting. Book your free consultation for manuscript editing, PhD guidance, and publication support.">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script src="https://kit.fontawesome.com/6e8799c987.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': 'hsl(223, 87%, 24%)',
+                        'primary-foreground': 'hsl(210, 40%, 98%)',
+                        'primary-glow': 'hsl(223, 87%, 35%)',
+                        'accent': 'hsl(217, 91%, 60%)',
+                        'accent-blue': 'hsl(214, 100%, 50%)',
+                        'academic-gold': 'hsl(45, 100%, 65%)',
+                        'background': 'hsl(0, 0%, 100%)',
+                        'foreground': 'hsl(225, 15%, 20%)',
+                        'card': 'hsl(0, 0%, 100%)',
+                        'card-foreground': 'hsl(225, 15%, 20%)',
+                        'secondary': 'hsl(215, 25%, 96%)',
+                        'secondary-foreground': 'hsl(225, 15%, 20%)',
+                        'muted': 'hsl(220, 14%, 96%)',
+                        'muted-foreground': 'hsl(220, 9%, 46%)',
+                        'border': 'hsl(220, 13%, 91%)',
+                        'input': 'hsl(220, 13%, 91%)',
+                        'ring': 'hsl(223, 87%, 24%)',
+                        'search-overlay': 'hsl(220, 43%, 11%, 0.4)',
+                    },
+                    backgroundImage: {
+                        'gradient-primary': 'linear-gradient(135deg, hsl(223, 87%, 24%), hsl(223, 87%, 35%))',
+                        'gradient-hero': 'linear-gradient(180deg, hsl(0 0% 100%), hsl(215 25% 98%))',
+                    },
+                    boxShadow: {
+                        'elegant': '0 10px 30px -10px hsl(223, 87%, 24%, 0.2)',
+                        'glow': '0 0 40px hsl(223, 87%, 35%, 0.3)',
+                        'card': '0 4px 20px -4px hsl(223, 87%, 24%, 0.1)',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        scaleIn: { 
+                            from: { opacity: '0', transform: 'scale(0.95)' }, to: { opacity: '1', transform: 'scale(1)' } 
+                        },
+                        slideIn: { 
+                            from: { transform: 'translateX(-100%)' }, to: { transform: 'translateX(0)' } 
+                        },
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'scale-in': 'scaleIn 0.2s ease-out',
+                        'slide-in': 'slideIn 0.3s ease-out',
+                    }
+                }
+            }
+        }
+    </script>
     
     <style>
-        :root {
-            --background: 0 0% 100%;
-            --foreground: 222.2 84% 4.9%;
-            --card: 0 0% 100%;
-            --card-foreground: 222.2 84% 4.9%;
-            --popover: 0 0% 100%;
-            --popover-foreground: 222.2 84% 4.9%;
-            --primary: 239 84% 67%;
-            --primary-foreground: 0 0% 100%;
-            --primary-glow: 239 60% 85%;
-            --secondary: 210 40% 96.1%;
-            --secondary-foreground: 222.2 47.4% 11.2%;
-            --muted: 210 40% 96.1%;
-            --muted-foreground: 215.4 16.3% 46.9%;
-            --accent: 266 85% 70%;
-            --accent-foreground: 0 0% 100%;
-            --destructive: 0 84.2% 60.2%;
-            --destructive-foreground: 210 40% 98%;
-            --border: 214.3 31.8% 91.4%;
-            --input: 214.3 31.8% 91.4%;
-            --ring: 239 84% 67%;
-            --gradient-primary: linear-gradient(135deg, hsl(239 84% 67%), hsl(266 85% 70%));
-            --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%), hsl(239 60% 98%));
-            --shadow-elegant: 0 10px 30px -10px hsl(239 84% 67% / 0.3);
-            --shadow-glow: 0 0 40px hsl(239 60% 85% / 0.4);
-            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: hsl(220, 9%, 46%); border-radius: 3px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: hsl(220, 13%, 18%); }
+
+        .glass-effect {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            background-color: hsla(223, 87%, 24%, 0.8);
         }
 
-        .dark {
-            --background: 222.2 84% 4.9%;
-            --foreground: 210 40% 98%;
-            --card: 222.2 84% 4.9%;
-            --card-foreground: 210 40% 98%;
-            --popover: 222.2 84% 4.9%;
-            --popover-foreground: 210 40% 98%;
-            --primary: 210 40% 98%;
-            --primary-foreground: 222.2 47.4% 11.2%;
-            --secondary: 217.2 32.6% 17.5%;
-            --secondary-foreground: 210 40% 98%;
-            --muted: 217.2 32.6% 17.5%;
-            --muted-foreground: 215 20.2% 65.1%;
-            --accent: 217.2 32.6% 17.5%;
-            --accent-foreground: 210 40% 98%;
-            --destructive: 0 62.8% 30.6%;
-            --destructive-foreground: 210 40% 98%;
-            --border: 217.2 32.6% 17.5%;
-            --input: 217.2 32.6% 17.5%;
-            --ring: 212.7 26.8% 83.9%;
+        .gradient-text {
+            background: linear-gradient(135deg, hsl(223, 87%, 24%), hsl(223, 87%, 35%));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        body {
-            background: hsl(var(--background));
-            color: hsl(var(--foreground));
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        }
-
-        .gradient-primary { background: var(--gradient-primary); }
-        .gradient-hero { background: var(--gradient-hero); }
-        .shadow-elegant { box-shadow: var(--shadow-elegant); }
-        .shadow-glow { box-shadow: var(--shadow-glow); }
-        .transition-smooth { transition: var(--transition-smooth); }
-
-        .hover-scale { transition: var(--transition-smooth); }
+        .hover-scale { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .hover-scale:hover { transform: scale(1.05); }
-
-        .animate-fade-in { animation: fade-in 0.6s ease-out; }
-        .animate-slide-up { animation: slide-up 0.8s ease-out; }
-
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slide-up {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .btn-hero {
-            background: var(--gradient-primary);
-            color: hsl(var(--primary-foreground));
-            transition: var(--transition-smooth);
-        }
-        .btn-hero:hover {
-            box-shadow: var(--shadow-glow);
-            transform: scale(1.02);
-        }
-        .btn-gradient {
-            background: var(--gradient-primary);
-            color: hsl(var(--primary-foreground));
-        }
-        .btn-gradient:hover {
-            box-shadow: var(--shadow-elegant);
-            transform: scale(1.05);
-        }
-        .input-focus:focus { box-shadow: var(--shadow-glow); }
-        .bg-primary-glow { background-color: hsl(var(--primary) / 0.1); }
-        .text-primary { color: hsl(var(--primary)); }
-        .border-primary-20 { border-color: hsl(var(--primary) / 0.2); }
+        .input-focus:focus { box-shadow: 0 0 40px hsl(223, 87%, 35%, 0.3); }
 
         .toast {
             position: fixed;
@@ -120,7 +96,7 @@
             background: white;
             border-radius: 8px;
             padding: 16px;
-            box-shadow: var(--shadow-elegant);
+            box-shadow: 0 10px 30px -10px hsl(223, 87%, 24%, 0.2);
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -130,344 +106,506 @@
         }
         .toast.show { transform: translateX(0); }
         .toast.success { border-left: 4px solid hsl(140, 65%, 55%); }
-        .toast.error { border-left: 4px solid hsl(var(--destructive)); }
-        
-        .gradient-text {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+        .toast.error { border-left: 4px solid hsl(0, 84.2%, 60.2%); }
     </style>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        border: 'hsl(var(--border))',
-                        input: 'hsl(var(--input))',
-                        ring: 'hsl(var(--ring))',
-                        background: 'hsl(var(--background))',
-                        foreground: 'hsl(var(--foreground))',
-                        primary: { DEFAULT: 'hsl(var(--primary))', foreground: 'hsl(var(--primary-foreground))' },
-                        secondary: { DEFAULT: 'hsl(var(--secondary))', foreground: 'hsl(var(--secondary-foreground))' },
-                        destructive: { DEFAULT: 'hsl(var(--destructive))', foreground: 'hsl(var(--destructive-foreground))' },
-                        muted: { DEFAULT: 'hsl(var(--muted))', foreground: 'hsl(var(--muted-foreground))' },
-                        accent: { DEFAULT: 'hsl(var(--accent))', foreground: 'hsl(var(--accent-foreground))' },
-                        popover: { DEFAULT: 'hsl(var(--popover))', foreground: 'hsl(var(--popover-foreground))' },
-                        card: { DEFAULT: 'hsl(var(--card))', foreground: 'hsl(var(--card-foreground))' }
-                    }
-                }
-            }
-        }
-    </script>
 </head>
-<body class="min-h-screen gradient-hero">
-    <div id="toast-container" class="fixed top-5 right-5 z-50"></div>
+<body class="bg-background text-foreground min-h-screen gradient-hero">
 
-    <section class="relative overflow-hidden">
-        <div class="container mx-auto px-4 sm:px-6 py-16 lg:py-20">
-            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                <div class="animate-fade-in text-center lg:text-left">
-                    <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mb-6 gradient-primary text-white">
-                        Expert Guidance Available
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary">
+        <div class="container mx-auto px-4 lg:px-6">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex-shrink-0 flex items-center space-x-2">
+                    <img class="md:w-18 w-14 rounded-xl" src="images/logo.png" alt="agency logo">
+                    <span class="md:text-xl text-sm font-bold text-white">Apex Scholarly Solutions</span>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-white hover:text-academic-gold transition-colors duration-200 font-medium">Home</a>
+                    <a href="consultancy.html" class="text-academic-gold hover:text-white transition-colors duration-200 font-bold">Consultation</a>
+                    <a href="index.html#research" class="text-white hover:text-academic-gold transition-colors duration-200 font-medium">Published Works</a>
+                    <a href="index.html#next-section" class="text-white hover:text-academic-gold transition-colors duration-200 font-medium">Services</a>
+                    <a href="index.html#contact" class="text-white hover:text-academic-gold transition-colors duration-200 font-medium">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <button id="searchBtn" class="hidden sm:flex items-center space-x-2 min-w-[200px] justify-start text-muted-foreground hover:text-foreground border border-border bg-muted rounded-lg px-3 py-2 transition-colors duration-200">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        <span class="text-sm">Search...</span>
+                        <kbd class="ml-auto px-2 py-1 text-xs bg-background rounded text-muted-foreground">⌘K</kbd>
+                    </button>
+                    <button id="mobileSearchBtn" class="sm:hidden p-2 text-white hover:bg-white/20 rounded-lg transition-colors">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </button>
+                    <button id="mobileMenuBtn" class="md:hidden p-2 text-white hover:bg-white/20 rounded-lg transition-colors">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="searchModal" class="fixed inset-0 z-[100] hidden animate-fade-in">
+        <div id="searchBackdrop" class="fixed inset-0 bg-search-overlay glass-effect z-10"></div>
+        <div class="relative z-20 flex items-start justify-center min-h-screen pt-[15vh] px-4">
+            <div class="w-full max-w-2xl bg-card border border-border rounded-xl shadow-2xl animate-scale-in">
+                <div class="flex items-center p-4 border-b border-border">
+                    <svg class="h-5 w-5 text-muted-foreground mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <input id="searchInput" type="text" placeholder="Search for anything..." class="flex-1 border-0 bg-transparent text-lg placeholder:text-muted-foreground focus:outline-none" autocomplete="off" />
+                    <button id="closeSearch" class="ml-2 p-2 hover:bg-muted rounded-lg transition-colors"><svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                </div>
+                <div id="searchResults" class="max-h-96 overflow-y-auto custom-scrollbar p-2"></div>
+                <div class="flex items-center justify-between p-4 border-t border-border bg-muted/30 text-xs text-muted-foreground">
+                    <div class="flex items-center space-x-1"><kbd class="px-2 py-1 bg-background rounded border">↵</kbd><span>to select</span></div>
+                    <div class="flex items-center space-x-1"><kbd class="px-2 py-1 bg-background rounded border">esc</kbd><span>to close</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobileMenu" class="fixed inset-0 z-[90] hidden">
+        <div id="mobileBackdrop" class="fixed inset-0 bg-search-overlay glass-effect transition-opacity duration-300"></div>
+        <div id="mobilePanel" class="fixed top-0 left-0 bottom-0 w-80 max-w-[85vw] bg-card border-r border-border shadow-2xl transform -translate-x-full transition-transform duration-300 ease-out">
+            <div class="flex items-center justify-between p-6 border-b border-border">
+                 <a href="index.html" class="flex items-center space-x-2">
+                    <div class="flex-shrink-0 flex items-center justify-center">
+                        <img class="w-14 h-10" src="images/logo.png" alt="agency logo">
+                        <span class="md:text-xl text-sm font-bold text-primary">Apex Scholarly Solutions</span>
                     </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                        Elevate Your Research with
-                        <span class="gradient-text"> Expert Academic Guidance</span>
-                    </h1>
-                    <p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                        Receive premier academic consulting to navigate your research journey. Book a free consultation and learn how we can help you achieve publication success and academic excellence.
+                </a>
+                <button id="closeMobile" class="p-2 hover:bg-muted rounded-lg transition-colors">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="py-6 px-3">
+                <a href="index.html" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Home</span></a>
+                <a href="consultancy.html" class="flex items-center justify-between p-3 rounded-lg bg-muted transition-colors duration-150 group"><span class="font-bold text-accent">Consultation</span></a>
+                <a href="index.html#research" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Published Works</span></a>
+                <a href="index.html#next-section" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Services</span></a>
+                <a href="index.html#contact" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Contact</span></a>
+            </div>
+        </div>
+    </div>
+    
+    <template id="searchResultTemplate">
+        <button class="search-result-item w-full flex items-center p-3 rounded-lg hover:bg-muted transition-colors duration-150 text-left group">
+            <div class="flex-shrink-0 w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center mr-3 group-hover:bg-accent/20 transition-colors">
+                <svg class="h-5 w-5 text-accent icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+                <p class="font-medium text-foreground group-hover:text-accent transition-colors result-title"></p>
+                <p class="text-sm text-muted-foreground result-type"></p>
+            </div>
+        </button>
+    </template>
+    
+    <main class="pt-16"> <div id="toast-container" class="fixed top-5 right-5 z-50"></div>
+
+        <section class="relative overflow-hidden pt-12 pb-16 lg:pb-20">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <div class="animate-fade-in text-center lg:text-left">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mb-6 bg-gradient-primary text-white">
+                            Expert Guidance Available
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                            Elevate Your Research with
+                            <span class="gradient-text"> Expert Academic Guidance</span>
+                        </h1>
+                        <p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                            Receive premier academic consulting to navigate your research journey. Book a free consultation and learn how we can help you achieve publication success and academic excellence.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
+                            <a href="#form-section" class="bg-gradient-primary text-white inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-md hover-scale shadow-elegant hover:shadow-glow">
+                                <i data-lucide="calendar" class="mr-2 h-5 w-5"></i>
+                                Book Free Consultation
+                            </a>
+                            <a href="https://wa.me/8801534236388" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md border border-gray-300 bg-white hover:bg-gray-50 transition-colors hover-scale">
+                                <i class="fa-brands fa-whatsapp mr-2 text-2xl"></i>
+                                 Chat on WhatsApp
+                            </a>
+                        </div>
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-8 text-sm text-gray-500">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="users" class="w-4 h-4"></i>
+                                50+ Researchers Supported
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                98% Publication Success
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                24hr Response Time
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animate-fade-in" style="animation-delay: 0.2s;">
+                        <img
+                            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&h=1080&q=80"
+                            alt="Academic Consultancy"
+                            class="rounded-2xl shadow-elegant hover-scale w-full h-auto"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 lg:py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 sm:mb-16 animate-fade-in">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-6">Our Academic Services</h2>
+                    <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                        We specialize in providing comprehensive support for researchers and academics at every stage of their career.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
-                        <button class="btn-hero inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-md hover-scale">
-                            <i data-lucide="calendar" class="mr-2 h-5 w-5"></i>
-                            Book Free Consultation
-                        </button>
-                        <a href="https://wa.me/8801534236388" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md border border-gray-300 bg-white hover:bg-gray-50 transition-smooth hover-scale">
-                            <i class="fa-brands fa-whatsapp mr-2 text-2xl"></i>
-                             Chat on WhatsApp
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg p-6 shadow-elegant hover-scale border-0 animate-fade-in">
+                        <div class="text-center pb-4">
+                            <div class="mx-auto mb-4 p-3 rounded-full bg-primary/10 w-fit">
+                                <i data-lucide="file-text" class="w-8 h-8 text-primary"></i>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold mb-4">Manuscript & Grant Writing</h3>
+                        </div>
+                        <p class="text-center text-base leading-relaxed text-gray-600">
+                            Refine your papers and proposals to meet the highest standards of scholarly publication and funding bodies.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-6 shadow-elegant hover-scale border-0 animate-fade-in" style="animation-delay: 0.1s;">
+                        <div class="text-center pb-4">
+                            <div class="mx-auto mb-4 p-3 rounded-full bg-primary/10 w-fit">
+                                <i data-lucide="graduation-cap" class="w-8 h-8 text-primary"></i>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold mb-4">PhD & Dissertation Support</h3>
+                        </div>
+                        <p class="text-center text-base leading-relaxed text-gray-600">
+                            Navigate your doctoral journey with expert guidance on research design, writing, and defense preparation.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-6 shadow-elegant hover-scale border-0 animate-fade-in" style="animation-delay: 0.2s;">
+                        <div class="text-center pb-4">
+                            <div class="mx-auto mb-4 p-3 rounded-full bg-primary/10 w-fit">
+                                <i data-lucide="bar-chart-3" class="w-8 h-8 text-primary"></i>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold mb-4">Statistical Analysis</h3>
+                        </div>
+                        <p class="text-center text-base leading-relaxed text-gray-600">
+                            Ensure the integrity of your findings with robust statistical consulting and data analysis services.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="form-section" class="py-16 lg:py-20 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                    <div class="animate-fade-in">
+                        <h2 class="text-3xl sm:text-4xl font-bold mb-6">Book Your Free Consultation</h2>
+                        <p class="text-lg sm:text-xl text-gray-600 mb-8">
+                            Ready to advance your academic career? Schedule a complimentary consultation with our scholarly experts.
+                        </p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <h3 class="text-xl sm:text-2xl font-semibold mb-4">What You'll Get:</h3>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-primary mt-1 flex-shrink-0"></i>
+                                <span class="text-lg">Free 30-minute strategy session</span>
+                            </div>
+                             <div class="flex items-start gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-primary mt-1 flex-shrink-0"></i>
+                                <span class="text-lg">Personalized research action plan</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-primary mt-1 flex-shrink-0"></i>
+                                <span class="text-lg">Targeted feedback on your project</span>
+                            </div>
+                        </div>
+
+                        <div class="p-6 bg-primary/10 rounded-xl border border-primary/20">
+                            <h4 class="font-semibold mb-2 text-primary">🎯 Perfect For:</h4>
+                            <p class="text-gray-600">
+                                PhD candidates, postdoctoral researchers, and faculty members seeking to enhance research quality and increase publication output.
+                            </p>
+                        </div>
+
+                        <div class="mt-8 p-4 bg-blue-50 rounded-lg">
+                            <p class="text-sm text-center text-gray-600">
+                                <strong>Note:</strong> Replace 'your-form-id' in the script with your actual Formspree ID from <a href="https://formspree.io" class="text-primary underline" target="_blank" rel="noopener">formspree.io</a> to enable submissions.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-6 sm:p-8 shadow-elegant border-0 animate-fade-in" style="animation-delay: 0.2s;">
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-bold gradient-text">
+                                Schedule Your Consultation
+                            </h3>
+                            <p class="text-base text-gray-600 mt-2">
+                                Fill out the form below and we'll contact you within 24 hours to schedule your free academic consultation.
+                            </p>
+                        </div>
+                        <form id="consultation-form" class="space-y-6">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium mb-2">Full Name *</label>
+                                    <input type="text" id="name" name="name" placeholder="John Doe" required class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring transition-all input-focus" />
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium mb-2">Email Address *</label>
+                                    <input type="email" id="email" name="email" placeholder="john.doe@university.edu" required class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring transition-all input-focus" />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="serviceType" class="block text-sm font-medium mb-2">Service Needed</label>
+                                <input type="text" id="serviceType" name="serviceType" placeholder="e.g., Manuscript Editing" class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring transition-all input-focus" />
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium mb-2">Your Research Goals *</label>
+                                <textarea id="message" name="message" placeholder="Tell us about your research, challenges, and goals..." rows="4" required class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring transition-all input-focus"></textarea>
+                            </div>
+
+                            <button type="submit" id="submit-btn" class="w-full bg-gradient-primary text-white inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md hover-scale shadow-elegant hover:shadow-glow">
+                                <span id="submit-text">Book My Free Consultation</span>
+                                <div id="spinner" class="hidden animate-spin rounded-full h-5 w-5 border-b-2 border-white ml-2"></div>
+                            </button>
+
+                            <p class="text-xs text-gray-500 text-center">
+                                By submitting, you agree to our terms. Your data is secure.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="consultation" class="py-16 lg:py-20 bg-gray-800 text-white">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 animate-fade-in">
+                        Ready to Accelerate Your Academic Career?
+                    </h2>
+                    <p class="text-lg sm:text-xl text-gray-300 mb-10 animate-fade-in" style="animation-delay: 0.1s;">
+                        Join hundreds of successful researchers who have achieved their publication and career goals with our expert academic consulting.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style="animation-delay: 0.2s;">
+                        <a href="#booking-calendar" 
+                           class="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md border border-transparent bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500 transition-transform duration-200 ease-in-out hover:scale-105">
+                           <i data-lucide="calendar-days" class="mr-2 h-5 w-5"></i>
+                            Schedule Free Call
+                        </a>
+                        <a href="#form-section" 
+                           class="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md border border-gray-600 bg-transparent text-gray-200 hover:bg-gray-700 hover:text-white transition-colors duration-200 ease-in-out">
+                           <i data-lucide="file-text" class="mr-2 h-5 w-5"></i>
+                            Explore Services
                         </a>
                     </div>
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-8 text-sm text-gray-500">
-                        <div class="flex items-center gap-2">
-                            <i data-lucide="users" class="w-4 h-4"></i>
-                            50+ Researchers Supported
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
-                            98% Publication Success
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i data-lucide="clock" class="w-4 h-4"></i>
-                            24hr Response Time
-                        </div>
-                    </div>
                 </div>
-                <div class="animate-slide-up">
-                    <img
-                        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&h=1080&q=80"
-                        alt="Academic Consultancy"
-                        class="rounded-2xl shadow-elegant hover-scale w-full h-auto"
-                    />
+                <div id="booking-calendar" class="mt-16 lg:mt-20 max-w-4xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-2xl overflow-hidden">
+                        <iframe 
+                            src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1hzsJKfcaCguG7X_FhnF8bLGoQ5_8IJAFiZO5JThHusoG8Elx03YDw_5rqHIJo4cyPA7hO_Pv3?gv=true" 
+                            class="w-full"
+                            width="100%" 
+                            height="650"
+                            frameborder="0"
+                            title="Interactive Scheduling Calendar">
+                        </iframe>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section class="py-16 lg:py-20 bg-white">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12 sm:mb-16 animate-fade-in">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-6">Our Academic Services</h2>
-                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-                    We specialize in providing comprehensive support for researchers and academics at every stage of their career.
-                </p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-lg p-6 shadow-elegant hover-scale border-0 animate-fade-in">
-                    <div class="text-center pb-4">
-                        <div class="mx-auto mb-4 p-3 rounded-full bg-primary-glow w-fit">
-                            <i data-lucide="file-text" class="w-8 h-8 text-primary"></i>
-                        </div>
-                        <h3 class="text-xl sm:text-2xl font-bold mb-4">Manuscript & Grant Writing</h3>
-                    </div>
-                    <p class="text-center text-base leading-relaxed text-gray-600">
-                        Refine your papers and proposals to meet the highest standards of scholarly publication and funding bodies.
-                    </p>
-                </div>
-
-                <div class="bg-white rounded-lg p-6 shadow-elegant hover-scale border-0 animate-fade-in" style="animation-delay: 0.1s;">
-                    <div class="text-center pb-4">
-                        <div class="mx-auto mb-4 p-3 rounded-full bg-primary-glow w-fit">
-                            <i data-lucide="graduation-cap" class="w-8 h-8 text-primary"></i>
-                        </div>
-                        <h3 class="text-xl sm:text-2xl font-bold mb-4">PhD & Dissertation Support</h3>
-                    </div>
-                    <p class="text-center text-base leading-relaxed text-gray-600">
-                        Navigate your doctoral journey with expert guidance on research design, writing, and defense preparation.
-                    </p>
-                </div>
-
-                <div class="bg-white rounded-lg p-6 shadow-elegant hover-scale border-0 animate-fade-in" style="animation-delay: 0.2s;">
-                    <div class="text-center pb-4">
-                        <div class="mx-auto mb-4 p-3 rounded-full bg-primary-glow w-fit">
-                            <i data-lucide="bar-chart-3" class="w-8 h-8 text-primary"></i>
-                        </div>
-                        <h3 class="text-xl sm:text-2xl font-bold mb-4">Statistical Analysis</h3>
-                    </div>
-                    <p class="text-center text-base leading-relaxed text-gray-600">
-                        Ensure the integrity of your findings with robust statistical consulting and data analysis services.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="form-section" class="py-16 lg:py-20 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                <div class="animate-fade-in">
-                    <h2 class="text-3xl sm:text-4xl font-bold mb-6">Book Your Free Consultation</h2>
-                    <p class="text-lg sm:text-xl text-gray-600 mb-8">
-                        Ready to advance your academic career? Schedule a complimentary consultation with our scholarly experts.
-                    </p>
-                    
-                    <div class="space-y-4 mb-8">
-                        <h3 class="text-xl sm:text-2xl font-semibold mb-4">What You'll Get:</h3>
-                        <div class="flex items-start gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-primary mt-1 flex-shrink-0"></i>
-                            <span class="text-lg">Free 30-minute strategy session</span>
-                        </div>
-                         <div class="flex items-start gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-primary mt-1 flex-shrink-0"></i>
-                            <span class="text-lg">Personalized research action plan</span>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-primary mt-1 flex-shrink-0"></i>
-                            <span class="text-lg">Targeted feedback on your project</span>
-                        </div>
-                    </div>
-
-                    <div class="p-6 bg-primary-glow rounded-xl border border-primary-20">
-                        <h4 class="font-semibold mb-2 text-primary">🎯 Perfect For:</h4>
-                        <p class="text-gray-600">
-                            PhD candidates, postdoctoral researchers, and faculty members seeking to enhance research quality and increase publication output.
-                        </p>
-                    </div>
-
-                    <div class="mt-8 p-4 bg-blue-50 rounded-lg">
-                        <p class="text-sm text-center text-gray-600">
-                            <strong>Note:</strong> Replace 'your-form-id' in the script with your actual Formspree ID from <a href="https://formspree.io" class="text-primary underline" target="_blank" rel="noopener">formspree.io</a> to enable submissions.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg p-6 sm:p-8 shadow-elegant border-0 animate-slide-up">
-                    <div class="mb-6">
-                        <h3 class="text-2xl font-bold gradient-text">
-                            Schedule Your Consultation
-                        </h3>
-                        <p class="text-base text-gray-600 mt-2">
-                            Fill out the form below and we'll contact you within 24 hours to schedule your free academic consultation.
-                        </p>
-                    </div>
-                    <form id="consultation-form" class="space-y-6">
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            <div>
-                                <label for="name" class="block text-sm font-medium mb-2">Full Name *</label>
-                                <input type="text" id="name" name="name" placeholder="John Doe" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition-smooth input-focus" />
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium mb-2">Email Address *</label>
-                                <input type="email" id="email" name="email" placeholder="john.doe@university.edu" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition-smooth input-focus" />
-                            </div>
-                        </div>
-
-                        <div>
-                            <label for="serviceType" class="block text-sm font-medium mb-2">Service Needed</label>
-                            <input type="text" id="serviceType" name="serviceType" placeholder="e.g., Manuscript Editing" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition-smooth input-focus" />
-                        </div>
-                        
-                        <div>
-                            <label for="message" class="block text-sm font-medium mb-2">Your Research Goals *</label>
-                            <textarea id="message" name="message" placeholder="Tell us about your research, challenges, and goals..." rows="4" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition-smooth input-focus"></textarea>
-                        </div>
-
-                        <button type="submit" id="submit-btn" class="w-full btn-gradient inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md hover-scale">
-                            <span id="submit-text">Book My Free Consultation</span>
-                            <div id="spinner" class="hidden animate-spin rounded-full h-5 w-5 border-b-2 border-white ml-2"></div>
-                        </button>
-
-                        <p class="text-xs text-gray-500 text-center">
-                            By submitting, you agree to our terms. Your data is secure.
-                        </p>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
- <section id="consultation" class="py-16 lg:py-20 bg-gray-800 text-white">
-    <div class="container mx-auto px-4 sm:px-6">
-
-        <div class="text-center max-w-3xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 animate-fade-in">
-                Ready to Accelerate Your Academic Career?
-            </h2>
-            <p class="text-lg sm:text-xl text-gray-300 mb-10 animate-fade-in animate-delay-200">
-                Join hundreds of successful researchers who have achieved their publication and career goals with our expert academic consulting.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animate-delay-400">
-                <a href="#booking-calendar" 
-                   class="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md border border-transparent bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500 transition-transform duration-200 ease-in-out hover:scale-105">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-5 w-5"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
-                    Schedule Free Call
-                </a>
-                <a href="#services" 
-                   class="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md border border-gray-600 bg-transparent text-gray-200 hover:bg-gray-700 hover:text-white transition-colors duration-200 ease-in-out">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-5 w-5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-                    Explore Services
-                </a>
-            </div>
-        </div>
-
-        <div id="booking-calendar" class="mt-16 lg:mt-20 max-w-4xl mx-auto">
-            <div class="bg-white rounded-xl shadow-2xl overflow-hidden">
-                <iframe 
-                    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1hzsJKfcaCguG7X_FhnF8bLGoQ5_8IJAFiZO5JThHusoG8Elx03YDw_5rqHIJo4cyPA7hO_Pv3?gv=true" 
-                    class="w-full"
-                    width="100%" 
-                    height="650"
-                    frameborder="0"
-                    title="Interactive Scheduling Calendar">
-                </iframe>
-            </div>
-        </div>
-
-    </div>
-</section>
     <script>
-        // --- Lucide Icons ---
-        lucide.createIcons();
-
-        // --- Toast Notification ---
-        function showToast(message, type = 'success') {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            const icon = type === 'success' ? `<i data-lucide="check-circle-2" class="w-6 h-6 text-green-500"></i>` : `<i data-lucide="x-circle" class="w-6 h-6 text-red-500"></i>`;
+        document.addEventListener('DOMContentLoaded', () => {
             
-            toast.className = `toast ${type}`;
-            toast.innerHTML = `${icon} <p>${message}</p>`;
+            // --- Logic for Navbar (from index.html) ---
+            const navbarDom = {
+                navbar: document.getElementById('navbar'),
+                searchModal: document.getElementById('searchModal'),
+                searchInput: document.getElementById('searchInput'),
+                searchResults: document.getElementById('searchResults'),
+                mobileMenu: document.getElementById('mobileMenu'),
+                mobilePanel: document.getElementById('mobilePanel'),
+                searchResultTemplate: document.getElementById('searchResultTemplate'),
+            };
+
+            const searchData = [
+                { id: 1, title: 'Home Page', type: 'Link', icon: 'home', url: 'index.html' },
+                { id: 2, title: 'Book a Consultation', type: 'Link', icon: 'calendar', url: 'consultancy.html' },
+                { id: 3, title: 'Our Research', type: 'Link', icon: 'file-text', url: 'index.html#research' },
+                { id: 4, title: 'Academic Services', type: 'Link', icon: 'graduation-cap', url: 'index.html#next-section' },
+            ];
+
+            const icons = {
+                home: '<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline>',
+                calendar: '<rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line>',
+                'file-text': '<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><line x1="10" x2="8" y1="9" y2="9"></line>',
+                'graduation-cap': '<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path>',
+            };
+
+            const debounce = (func, delay) => {
+                let timeoutId;
+                return (...args) => {
+                    clearTimeout(timeoutId);
+                    timeoutId = setTimeout(() => func.apply(this, args), delay);
+                };
+            };
             
-            container.appendChild(toast);
-            lucide.createIcons();
+            const toggleModal = (modalElement, show) => {
+                modalElement.classList.toggle('hidden', !show);
+                document.body.style.overflow = show ? 'hidden' : 'auto';
+                if(show && navbarDom.searchInput) navbarDom.searchInput.focus();
+            };
 
-            setTimeout(() => {
-                toast.classList.add('show');
-            }, 100);
+            const toggleMobileMenu = (show) => {
+                if (show) {
+                    navbarDom.mobileMenu.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    requestAnimationFrame(() => navbarDom.mobilePanel.classList.remove('-translate-x-full'));
+                } else {
+                    navbarDom.mobilePanel.classList.add('-translate-x-full');
+                    setTimeout(() => {
+                        navbarDom.mobileMenu.classList.add('hidden');
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                }
+            };
 
-            setTimeout(() => {
-                toast.classList.remove('show');
-                setTimeout(() => {
-                    toast.remove();
-                }, 500);
-            }, 4000);
-        }
+            const renderSearchResults = (query) => {
+                navbarDom.searchResults.innerHTML = '';
+                const lowerCaseQuery = query.toLowerCase();
+                const filteredResults = searchData.filter(item => item.title.toLowerCase().includes(lowerCaseQuery));
 
-        // --- Formspree Submission ---
-        const form = document.getElementById('consultation-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const submitText = document.getElementById('submit-text');
-        const spinner = document.getElementById('spinner');
+                if (query && filteredResults.length > 0) {
+                    const fragment = document.createDocumentFragment();
+                    filteredResults.forEach(result => {
+                        const clone = navbarDom.searchResultTemplate.content.cloneNode(true);
+                        const button = clone.querySelector('.search-result-item');
+                        button.dataset.url = result.url;
+                        clone.querySelector('.icon-svg').innerHTML = icons[result.icon] || icons['file-text'];
+                        clone.querySelector('.result-title').textContent = result.title;
+                        clone.querySelector('.result-type').textContent = result.type;
+                        fragment.appendChild(clone);
+                    });
+                    navbarDom.searchResults.appendChild(fragment);
+                } else {
+                    navbarDom.searchResults.innerHTML = `<p class="p-8 text-center text-muted-foreground">${query ? 'No results found' : 'Start typing to search...'}</p>`;
+                }
+            };
 
-        async function handleSubmit(event) {
-            event.preventDefault();
-            
-            // --- Replace with your Formspree Form ID ---
-            const FORMSPREE_ID = 'your-form-id';
-            // ---------------------------------------------
-            
-            if (FORMSPREE_ID === 'your-form-id') {
-                showToast("Please set your Formspree ID in the script.", "error");
-                return;
-            }
+            const debouncedRender = debounce(renderSearchResults, 250);
 
-            const data = new FormData(event.target);
-            
-            submitText.textContent = 'Submitting...';
-            spinner.classList.remove('hidden');
-            submitBtn.disabled = true;
-
-            try {
-                const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-                    method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
+            if (navbarDom.navbar) {
+                window.addEventListener('scroll', () => {
+                    navbarDom.navbar.classList.toggle('glass-effect', window.scrollY > 10);
+                    navbarDom.navbar.classList.toggle('shadow-md', window.scrollY > 10);
                 });
 
-                if (response.ok) {
-                    showToast('Thank you! Your message has been sent.', 'success');
-                    form.reset();
-                } else {
-                    const responseData = await response.json();
-                    if (responseData.errors) {
-                        const errorMessage = responseData.errors.map(error => error.message).join(', ');
-                        showToast(`Submission failed: ${errorMessage}`, 'error');
-                    } else {
-                        showToast('Oops! Something went wrong.', 'error');
+                document.getElementById('searchBtn').addEventListener('click', () => toggleModal(navbarDom.searchModal, true));
+                document.getElementById('mobileSearchBtn').addEventListener('click', () => toggleModal(navbarDom.searchModal, true));
+                document.getElementById('closeSearch').addEventListener('click', () => toggleModal(navbarDom.searchModal, false));
+                document.getElementById('searchBackdrop').addEventListener('click', () => toggleModal(navbarDom.searchModal, false));
+                document.getElementById('mobileMenuBtn').addEventListener('click', () => toggleMobileMenu(true));
+                document.getElementById('closeMobile').addEventListener('click', () => toggleMobileMenu(false));
+                document.getElementById('mobileBackdrop').addEventListener('click', () => toggleMobileMenu(false));
+                
+                navbarDom.mobilePanel.querySelectorAll('a').forEach(link => link.addEventListener('click', () => toggleMobileMenu(false)));
+                navbarDom.searchInput.addEventListener('input', (e) => debouncedRender(e.target.value));
+
+                navbarDom.searchResults.addEventListener('click', (e) => {
+                    const resultItem = e.target.closest('.search-result-item');
+                    if (resultItem && resultItem.dataset.url) {
+                        window.location.href = resultItem.dataset.url;
+                        toggleModal(navbarDom.searchModal, false);
+                    }
+                });
+                
+                document.addEventListener('keydown', (e) => {
+                    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                        e.preventDefault();
+                        toggleModal(navbarDom.searchModal, navbarDom.searchModal.classList.contains('hidden'));
+                    }
+                    if (e.key === 'Escape') {
+                        if (!navbarDom.searchModal.classList.contains('hidden')) toggleModal(navbarDom.searchModal, false);
+                        if (!navbarDom.mobileMenu.classList.contains('hidden')) toggleMobileMenu(false);
+                    }
+                });
+
+                renderSearchResults('');
+            }
+            
+            // --- Logic for Consultation Page ---
+            lucide.createIcons();
+
+            function showToast(message, type = 'success') {
+                const container = document.getElementById('toast-container');
+                if (!container) return;
+                const toast = document.createElement('div');
+                const icon = type === 'success' ? `<i data-lucide="check-circle-2" class="w-6 h-6 text-green-500"></i>` : `<i data-lucide="x-circle" class="w-6 h-6 text-red-500"></i>`;
+                
+                toast.className = `toast ${type}`;
+                toast.innerHTML = `${icon} <p>${message}</p>`;
+                
+                container.appendChild(toast);
+                lucide.createIcons();
+
+                setTimeout(() => { toast.classList.add('show'); }, 100);
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => { toast.remove(); }, 500);
+                }, 4000);
+            }
+
+            const form = document.getElementById('consultation-form');
+            if (form) {
+                const submitBtn = document.getElementById('submit-btn');
+                const submitText = document.getElementById('submit-text');
+                const spinner = document.getElementById('spinner');
+
+                async function handleSubmit(event) {
+                    event.preventDefault();
+                    
+                    const FORMSPREE_ID = 'your-form-id'; // <--- IMPORTANT: SET YOUR FORMSPREE ID
+                    
+                    if (FORMSPREE_ID === 'your-form-id') {
+                        showToast("Please set your Formspree ID in the script.", "error");
+                        return;
+                    }
+
+                    const data = new FormData(event.target);
+                    submitText.textContent = 'Submitting...';
+                    spinner.classList.remove('hidden');
+                    submitBtn.disabled = true;
+
+                    try {
+                        const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                            method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+                        });
+
+                        if (response.ok) {
+                            showToast('Thank you! Your message has been sent.', 'success');
+                            form.reset();
+                        } else {
+                            const responseData = await response.json();
+                            const errorMessage = responseData.errors ? responseData.errors.map(e => e.message).join(', ') : 'Something went wrong.';
+                            showToast(`Submission failed: ${errorMessage}`, 'error');
+                        }
+                    } catch (error) {
+                        showToast('Network error. Please try again.', 'error');
+                    } finally {
+                        submitText.textContent = 'Book My Free Consultation';
+                        spinner.classList.add('hidden');
+                        submitBtn.disabled = false;
                     }
                 }
-            } catch (error) {
-                showToast('Network error. Please try again.', 'error');
-            } finally {
-                submitText.textContent = 'Book My Free Consultation';
-                spinner.classList.add('hidden');
-                submitBtn.disabled = false;
+                form.addEventListener('submit', handleSubmit);
             }
-        }
-
-        form.addEventListener('submit', handleSubmit);
+        });
     </script>
 </body>
 </html>
