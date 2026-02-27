@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Published Works | Apex Scholarly Solutions</title>
+    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+    <meta name="description" content="Academic publication archive from Apex Scholarly Solutions featuring completed and ongoing multidisciplinary research projects.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/6e8799c987.js" crossorigin="anonymous"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': 'hsl(223, 87%, 24%)',
+                        'primary-foreground': 'hsl(210, 40%, 98%)',
+                        'primary-glow': 'hsl(223, 87%, 35%)',
+                        'accent': 'hsl(217, 91%, 60%)',
+                        'accent-blue': 'hsl(214, 100%, 50%)',
+                        'academic-gold': 'hsl(45, 100%, 65%)',
+                        'background': 'hsl(0, 0%, 100%)',
+                        'foreground': 'hsl(225, 15%, 20%)',
+                        'card': 'hsl(0, 0%, 100%)',
+                        'muted': 'hsl(220, 14%, 96%)',
+                        'muted-foreground': 'hsl(220, 9%, 46%)',
+                        'border': 'hsl(220, 13%, 91%)',
+                        'search-overlay': 'hsl(220, 43%, 11%, 0.4)',
+                    },
+                    backgroundImage: {
+                        'gradient-primary': 'linear-gradient(135deg, hsl(223, 87%, 24%), hsl(223, 87%, 35%))',
+                        'paper-grid': 'radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.07) 1px, transparent 0)',
+                    },
+                    boxShadow: {
+                        'elegant': '0 10px 30px -10px hsl(223, 87%, 24%, 0.2)',
+                        'card': '0 4px 20px -4px hsl(223, 87%, 24%, 0.1)',
+                    },
+                    fontFamily: {
+                        'serif': ['Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: hsl(220, 9%, 46%); border-radius: 3px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: hsl(220, 13%, 18%); }
+
+        .glass-effect {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            background-color: hsla(223, 87%, 24%, 0.82);
+        }
+
+        .paper-grid-bg {
+            background-image: radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.06) 1px, transparent 0);
+            background-size: 22px 22px;
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground min-h-screen">
+
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary">
+        <div class="container mx-auto px-4 lg:px-6">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex-shrink-0 flex items-center space-x-2">
+                    <img class="md:w-18 w-14 rounded-xl" src="images/logo.png" alt="agency logo">
+                    <span class="md:text-xl text-sm font-bold text-white">Apex Scholarly Solutions</span>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-white hover:text-academic-gold transition-colors duration-200 font-medium">Home</a>
+                    <a href="consultancy.html" class="text-white hover:text-academic-gold transition-colors duration-200 font-medium">Consultation</a>
+                    <a href="published-works.html" class="text-academic-gold hover:text-white transition-colors duration-200 font-bold">Published Works</a>
+                    <a href="index.html#next-section" class="text-white hover:text-academic-gold transition-colors duration-200 font-medium">Services</a>
+                    <a href="index.html#contact" class="text-white hover:text-academic-gold transition-colors duration-200 font-medium">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <button id="mobileMenuBtn" class="md:hidden p-2 text-white hover:bg-white/20 rounded-lg transition-colors">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobileMenu" class="fixed inset-0 z-[90] hidden">
+        <div id="mobileBackdrop" class="fixed inset-0 bg-search-overlay glass-effect transition-opacity duration-300"></div>
+        <div id="mobilePanel" class="fixed top-0 left-0 bottom-0 w-80 max-w-[85vw] bg-card border-r border-border shadow-2xl transform -translate-x-full transition-transform duration-300 ease-out">
+            <div class="flex items-center justify-between p-6 border-b border-border">
+                 <a href="index.html" class="flex items-center space-x-2">
+                    <div class="flex-shrink-0 flex items-center justify-center">
+                        <img class="w-14 h-10" src="images/logo.png" alt="agency logo">
+                        <span class="md:text-xl text-sm font-bold text-primary">Apex Scholarly Solutions</span>
+                    </div>
+                </a>
+                <button id="closeMobile" class="p-2 hover:bg-muted rounded-lg transition-colors">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="py-6 px-3">
+                <a href="index.html" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Home</span></a>
+                <a href="consultancy.html" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Consultation</span></a>
+                <a href="published-works.html" class="flex items-center justify-between p-3 rounded-lg bg-muted transition-colors duration-150 group"><span class="font-bold text-accent">Published Works</span></a>
+                <a href="index.html#next-section" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Services</span></a>
+                <a href="index.html#contact" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Contact</span></a>
+            </div>
+        </div>
+    </div>
+
+    <main class="pt-16">
+        <section class="paper-grid-bg border-b border-border bg-gradient-to-b from-slate-50 to-white">
+            <div class="container mx-auto px-4 sm:px-6 py-14 sm:py-20">
+                <div class="max-w-4xl">
+                    <p class="inline-flex items-center rounded-full border border-slate-300 bg-white px-3 py-1 text-xs font-semibold tracking-wide text-slate-700">
+                        Scholarly Archive
+                    </p>
+                    <h1 class="mt-5 text-4xl sm:text-5xl font-serif font-bold leading-tight text-slate-900">
+                        Published Works and Ongoing Research Portfolio
+                    </h1>
+                    <p class="mt-5 max-w-3xl text-lg text-slate-600 leading-relaxed">
+                        A structured record of multidisciplinary academic projects delivered through Apex Scholarly Solutions across engineering, public health, law, and clinical research domains.
+                    </p>
+                </div>
+
+                <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-card">
+                        <p class="text-xs uppercase tracking-wide text-slate-500">Total Projects</p>
+                        <p class="mt-2 text-2xl font-bold text-slate-900">11</p>
+                    </div>
+                    <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-card">
+                        <p class="text-xs uppercase tracking-wide text-slate-500">Published</p>
+                        <p class="mt-2 text-2xl font-bold text-emerald-700">9</p>
+                    </div>
+                    <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-card">
+                        <p class="text-xs uppercase tracking-wide text-slate-500">Ongoing</p>
+                        <p class="mt-2 text-2xl font-bold text-amber-700">2</p>
+                    </div>
+                    <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-card">
+                        <p class="text-xs uppercase tracking-wide text-slate-500">Disciplines</p>
+                        <p class="mt-2 text-2xl font-bold text-slate-900">4+</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white">
+            <div class="container mx-auto px-4 sm:px-6 py-14">
+                <div class="mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-serif font-semibold text-slate-900">Project Index</h2>
+                    <p class="mt-2 text-slate-600">Ordered by portfolio record. Publication links can be attached to each item anytime.</p>
+                </div>
+
+                <div class="space-y-5" id="papersContainer"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="relative overflow-hidden bg-slate-950 text-slate-100">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.25),_transparent_55%)]"></div>
+        <div class="relative container mx-auto px-4 sm:px-6 py-14">
+            <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <img class="w-12 rounded-lg" src="images/logo.png" alt="Apex Scholarly Solutions logo">
+                        <h3 class="text-lg font-semibold">Apex Scholarly Solutions</h3>
+                    </div>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Research-focused consultancy supporting scholars with publication strategy, data analysis, and structured academic guidance.
+                    </p>
+                    <a href="consultancy.html" class="inline-flex items-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent-blue transition-colors">
+                        Book Free Consultation
+                    </a>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-semibold uppercase tracking-wider text-slate-200">Quick Links</h4>
+                    <ul class="mt-4 space-y-3 text-sm text-slate-300">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="consultancy.html" class="hover:text-white transition-colors">Consultation</a></li>
+                        <li><a href="index.html#next-section" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="index.html#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-semibold uppercase tracking-wider text-slate-200">Research Areas</h4>
+                    <ul class="mt-4 space-y-3 text-sm text-slate-300">
+                        <li>Computer Science and Security</li>
+                        <li>Public Health and Medicine</li>
+                        <li>AI and Data Systems</li>
+                        <li>Law and Social Policy</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-semibold uppercase tracking-wider text-slate-200">Contact</h4>
+                    <ul class="mt-4 space-y-3 text-sm text-slate-300">
+                        <li>
+                            <a href="https://wa.me/8801534236388" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+                                WhatsApp: +880 1534-236388
+                            </a>
+                        </li>
+                        <li>Response Time: within 24 hours</li>
+                        <li>Client Satisfaction: 98%</li>
+                        <li>Projects Supported: 50+</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-10 border-t border-slate-800 pt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-400">
+                <p>&copy; <span id="currentYear"></span> Apex Scholarly Solutions. All rights reserved.</p>
+                <p>Built for trusted, practical, and publication-ready academic support.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const papers = [
+                {
+                    title: 'Optimizing Zero Trust Authentication for Scalable and Secure Access in SaaS Environments',
+                    degree: 'M.Eng. Program in Information & Communication Engineering',
+                    university: 'Berliner Hochschule fur Technik (BHT), Germany',
+                    publishDate: '05.06.2025',
+                    status: 'Published',
+                    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
+                    imageAlt: 'Cybersecurity concept with digital lock and network data'
+                },
+                {
+                    title: 'Knowledge, Attitude and Practice on Cervical Cancer Screening among Married Women Attending Selected Hospitals of Fatikchori Upazila, Chattogram',
+                    degree: 'Master of Public Health (MPH)',
+                    university: 'Bangladesh University of Professionals (BUP)',
+                    publishDate: '13.07.2025',
+                    status: 'Published',
+                    image: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=80',
+                    imageAlt: 'Healthcare professional with stethoscope in a clinical setting'
+                },
+                {
+                    title: 'Device-use and Communication Improvement among Autistic Children at Selected Special Schools in Dhaka, Bangladesh',
+                    degree: 'Master of Public Health (MPH)',
+                    university: 'Bangladesh University of Professionals (BUP)',
+                    publishDate: '16.07.2025',
+                    status: 'Published',
+                    image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=80',
+                    imageAlt: 'Teacher and child engaged in learning activity'
+                },
+                {
+                    title: 'Domestic Violence and Psychological Abuse Against Women in Bangladesh: Legal and Social Context',
+                    degree: 'Department of Law and Justice (LL.M)',
+                    university: 'Jatiya Kabi Kazi Nazrul Islam University, Trishal, Mymensingh, Bangladesh',
+                    publishDate: '26.08.2025',
+                    status: 'Published',
+                    image: 'https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=1200',
+                    imageAlt: 'Gavel and legal books symbolizing legal research'
+                },
+                {
+                    title: 'A Novel Approach for a Smart IoMT-based BAN for an Old Home Healthcare Monitoring System Using Starlink',
+                    degree: 'Bachelors of Computer Science and Engineering',
+                    university: 'International University of Business and Agriculture Technology (IUBAT)',
+                    publishDate: '15.09.2025',
+                    status: 'Published',
+                    image: 'https://images.unsplash.com/photo-1576671081837-49000212a370?auto=format&fit=crop&w=1200&q=80',
+                    imageAlt: 'Patient monitoring device and healthcare technology dashboard'
+                },
+                {
+                    title: 'Machine Learning-Based Intrusion Detection for IoT Networks: Comparative Analysis and Industry-Ready Deployment',
+                    degree: 'Bachelors of Computer Science and Engineering',
+                    university: 'East Delta University',
+                    publishDate: '10.09.2025',
+                    status: 'Published',
+                    image: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=1200&q=80',
+                    imageAlt: 'IoT devices connected through digital network visualization'
+                },
+                {
+                    title: 'Enhanced Deep Learning for Automated Glaucoma Detection: Optimized Framework with Image Enhancement, Model Comparison, and Deployment',
+                    degree: 'Bachelors of Computer Science and Engineering',
+                    university: 'BRAC University',
+                    publishDate: '12.10.2025',
+                    status: 'Published',
+                    image: 'https://images.unsplash.com/photo-1581595219315-a187dd40c322?auto=format&fit=crop&w=1200&q=80',
+                    imageAlt: 'Eye examination equipment in ophthalmology clinic'
+                },
+                {
+                    title: 'Multi-Disease Classification in Chest X-rays Using Ensemble Deep Learning and Explainable AI',
+                    degree: 'Masters of Computer Science and Engineering',
+                    university: 'AUST',
+                    publishDate: '20.10.2025',
+                    status: 'Published',
+                    image: 'https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1200&q=80',
+                    imageAlt: 'Radiology scan and chest x-ray analysis interface'
+                },
+                {
+                    title: 'Study on Enhancing Feature-wise Linear Modulation (FiLM) Fusion for Multimodal Named Entity Recognition and Relationship Extraction',
+                    degree: 'Masters of Computer Science and Technology',
+                    university: 'Harbin Institute of Technology, China',
+                    publishDate: '10.11.2025',
+                    status: 'Published',
+                    image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80',
+                    imageAlt: 'Academic notes and language processing research workspace'
+                },
+                {
+                    title: 'A Federated Learning and Blockchain-Based Framework for Real-Time Zero-Day Attack Detection and Privacy Preservation',
+                    degree: 'Bachelors of Computer Science and Engineering',
+                    university: 'Green University of Bangladesh, Narayanganj',
+                    publishDate: 'Ongoing',
+                    status: 'Ongoing',
+                    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80',
+                    imageAlt: 'Abstract blockchain and cybersecurity network concept'
+                },
+                {
+                    title: 'Comparative Analysis of Test Tool Performance with a Focus on the Bangladeshi Context in Pediatric Speech-Language Therapy',
+                    degree: 'Masters of Medical Studies (FMS)',
+                    university: 'Bangladesh University of Professionals (BUP)',
+                    publishDate: 'Ongoing',
+                    status: 'Ongoing',
+                    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
+                    imageAlt: 'Speech therapy session with child and clinician'
+                }
+            ];
+
+            const papersContainer = document.getElementById('papersContainer');
+            papersContainer.innerHTML = papers.map((paper, index) => {
+                const isOngoing = paper.status === 'Ongoing';
+                return `
+                    <article class="rounded-xl border ${isOngoing ? 'border-amber-200 bg-amber-50/50' : 'border-slate-200 bg-white'} shadow-card p-5 sm:p-6">
+                        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                            <div class="w-full md:w-52 lg:w-60 flex-shrink-0">
+                                <img
+                                    src="${paper.image}"
+                                    alt="${paper.imageAlt}"
+                                    loading="lazy"
+                                    class="h-36 w-full rounded-lg object-cover border border-slate-200"
+                                />
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="inline-flex items-center rounded-md bg-slate-900 px-2.5 py-1 text-xs font-medium text-white">Project ${index + 1}</span>
+                                    <span class="inline-flex items-center rounded-md px-2.5 py-1 text-xs font-medium ${isOngoing ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'}">${paper.status}</span>
+                                </div>
+                                <h3 class="text-lg sm:text-xl font-serif font-semibold leading-snug text-slate-900">${paper.title}</h3>
+                                <div class="grid sm:grid-cols-2 gap-3 text-sm">
+                                    <p><span class="font-semibold text-slate-700">Degree:</span> <span class="text-slate-600">${paper.degree}</span></p>
+                                    <p><span class="font-semibold text-slate-700">Publication Date:</span> <span class="text-slate-600">${paper.publishDate}</span></p>
+                                    <p class="sm:col-span-2"><span class="font-semibold text-slate-700">University:</span> <span class="text-slate-600">${paper.university}</span></p>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors" disabled title="Add publication URL when available">
+                                    <i class="fa-solid fa-link text-xs"></i>
+                                    Link Pending
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                navbar.classList.toggle('glass-effect', window.scrollY > 10);
+                navbar.classList.toggle('shadow-md', window.scrollY > 10);
+            });
+
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobilePanel = document.getElementById('mobilePanel');
+            document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+                mobileMenu.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                requestAnimationFrame(() => mobilePanel.classList.remove('-translate-x-full'));
+            });
+
+            const closeMobileMenu = () => {
+                mobilePanel.classList.add('-translate-x-full');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            };
+
+            document.getElementById('closeMobile').addEventListener('click', closeMobileMenu);
+            document.getElementById('mobileBackdrop').addEventListener('click', closeMobileMenu);
+            mobilePanel.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            const yearTarget = document.getElementById('currentYear');
+            if (yearTarget) yearTarget.textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

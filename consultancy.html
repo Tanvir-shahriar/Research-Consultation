@@ -122,7 +122,7 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="text-white hover:text-academic-gold transition-colors duration-200 font-medium">Home</a>
                     <a href="consultancy.html" class="text-academic-gold hover:text-white transition-colors duration-200 font-bold">Consultation</a>
-                    <a href="index.html#research" class="text-white hover:text-academic-gold transition-colors duration-200 font-medium">Published Works</a>
+                    <a href="published-works.html" class="text-white hover:text-academic-gold transition-colors duration-200 font-medium">Published Works</a>
                     <a href="index.html#next-section" class="text-white hover:text-academic-gold transition-colors duration-200 font-medium">Services</a>
                     <a href="index.html#contact" class="text-white hover:text-academic-gold transition-colors duration-200 font-medium">Contact</a>
                 </div>
@@ -179,7 +179,7 @@
             <div class="py-6 px-3">
                 <a href="index.html" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Home</span></a>
                 <a href="consultancy.html" class="flex items-center justify-between p-3 rounded-lg bg-muted transition-colors duration-150 group"><span class="font-bold text-accent">Consultation</span></a>
-                <a href="index.html#research" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Published Works</span></a>
+                <a href="published-works.html" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Published Works</span></a>
                 <a href="index.html#next-section" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Services</span></a>
                 <a href="index.html#contact" class="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors duration-150 group"><span class="font-medium text-foreground group-hover:text-accent">Contact</span></a>
             </div>
@@ -420,8 +420,69 @@
         </section>
     </main>
 
+    <footer class="relative overflow-hidden bg-slate-950 text-slate-100">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.25),_transparent_55%)]"></div>
+        <div class="relative container mx-auto px-4 sm:px-6 py-14">
+            <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <img class="w-12 rounded-lg" src="images/logo.png" alt="Apex Scholarly Solutions logo">
+                        <h3 class="text-lg font-semibold">Apex Scholarly Solutions</h3>
+                    </div>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Research-focused consultancy supporting scholars with publication strategy, data analysis, and structured academic guidance.
+                    </p>
+                    <a href="#form-section" class="inline-flex items-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent-blue transition-colors">
+                        Start Your Consultation
+                    </a>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-semibold uppercase tracking-wider text-slate-200">Quick Links</h4>
+                    <ul class="mt-4 space-y-3 text-sm text-slate-300">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="index.html#next-section" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="published-works.html" class="hover:text-white transition-colors">Published Works</a></li>
+                        <li><a href="#booking-calendar" class="hover:text-white transition-colors">Schedule Call</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-semibold uppercase tracking-wider text-slate-200">Consulting Areas</h4>
+                    <ul class="mt-4 space-y-3 text-sm text-slate-300">
+                        <li>Publication Planning</li>
+                        <li>PhD and Thesis Support</li>
+                        <li>Journal Submission Readiness</li>
+                        <li>Research Roadmap Sessions</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-semibold uppercase tracking-wider text-slate-200">Contact</h4>
+                    <ul class="mt-4 space-y-3 text-sm text-slate-300">
+                        <li>
+                            <a href="https://wa.me/8801534236388" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+                                WhatsApp: +880 1534-236388
+                            </a>
+                        </li>
+                        <li>Response Time: within 24 hours</li>
+                        <li>Client Satisfaction: 98%</li>
+                        <li>Projects Supported: 50+</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-10 border-t border-slate-800 pt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-400">
+                <p>&copy; <span id="currentYear"></span> Apex Scholarly Solutions. All rights reserved.</p>
+                <p>Built for trusted, practical, and publication-ready academic support.</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const yearTarget = document.getElementById('currentYear');
+            if (yearTarget) yearTarget.textContent = new Date().getFullYear();
             
             // --- Logic for Navbar (from index.html) ---
             const navbarDom = {
@@ -437,7 +498,7 @@
             const searchData = [
                 { id: 1, title: 'Home Page', type: 'Link', icon: 'home', url: 'index.html' },
                 { id: 2, title: 'Book a Consultation', type: 'Link', icon: 'calendar', url: 'consultancy.html' },
-                { id: 3, title: 'Our Research', type: 'Link', icon: 'file-text', url: 'index.html#research' },
+                { id: 3, title: 'Our Research', type: 'Link', icon: 'file-text', url: 'published-works.html' },
                 { id: 4, title: 'Academic Services', type: 'Link', icon: 'graduation-cap', url: 'index.html#next-section' },
             ];
 
