@@ -121,11 +121,11 @@
         <div class="container mx-auto px-4 lg:px-6">
             <div class="flex items-center justify-between h-16">
                 <a href="#" class="flex-shrink-0 flex items-center space-x-2">
-                    <img class="md:w-18 w-14 rounded-xl " src="images/logo.png" alt="agency logo">
-                    <span class="md:text-xl text-sm font-bold text-primary text-white">Apex Scholarly Solutions</span>
+                    <img class="w-12 sm:w-14 lg:w-16 rounded-xl " src="images/logo.png" alt="agency logo">
+                    <span class="text-xs sm:text-sm lg:text-base xl:text-xl font-bold text-primary text-white">Apex Scholarly Solutions</span>
                 </a>
 
-                <div class="hidden md:flex items-center space-x-8 ">
+                <div class="hidden xl:flex items-center space-x-8 ">
                     <a href="#" class="text-foreground hover:text-accent transition-colors duration-200 font-medium text-white">Home</a>
                     <a href="consultancy.html" class="text-foreground hover:text-accent transition-colors duration-200 font-medium text-white">Consultation</a>
                     <a href="published-works.html" class="text-foreground hover:text-accent transition-colors duration-200 font-medium text-white">Published Works</a>
@@ -134,16 +134,16 @@
                 </div>
 
                 <div class="flex items-center space-x-2 sm:space-x-4">
-                    <button id="searchBtn" class="hidden sm:flex items-center space-x-2 min-w-[200px] justify-start text-muted-foreground hover:text-foreground border border-border bg-muted rounded-lg px-3 py-2 transition-colors duration-200">
+                    <button id="searchBtn" class="hidden xl:flex items-center space-x-2 min-w-[180px] xl:min-w-[220px] justify-start text-muted-foreground hover:text-foreground border border-border bg-muted rounded-lg px-3 py-2 transition-colors duration-200">
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                         <span class="text-sm">Search...</span>
                         <kbd class="ml-auto px-2 py-1 text-xs bg-background rounded text-muted-foreground">⌘K</kbd>
                     </button>
-                    <button id="mobileSearchBtn" class="sm:hidden p-2 text-white hover:bg-white/20 rounded-lg transition-colors">
+                    <button id="mobileSearchBtn" class="xl:hidden p-2 text-white hover:bg-white/20 rounded-lg transition-colors">
                     <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                     </button>
 
-                    <button id="mobileMenuBtn" class="md:hidden p-2 text-white hover:bg-white/20 rounded-lg transition-colors">
+                    <button id="mobileMenuBtn" class="xl:hidden p-2 text-white hover:bg-white/20 rounded-lg transition-colors">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
                 </div>
@@ -210,9 +210,9 @@
             <div class="absolute inset-0 bg-black/20"></div>
 
             <div class="container mx-auto px-4 sm:px-6 relative z-10">
-                <div class="grid md:grid-cols-2 gap-x-8 gap-y-12 items-center">
+                <div class="grid lg:grid-cols-2 gap-x-8 gap-y-12 items-center">
 
-                    <div class="text-white md:space-y-10 space-y-3 animate-fade-in">
+                    <div class="text-white lg:space-y-10 space-y-3 animate-fade-in">
                         <div class="space-y-4">
                             <h1 class="text-4xl lg:text-6xl font-bold leading-tight">
                                 Advancing Knowledge Through
@@ -276,7 +276,7 @@
         </section>
 
         <section class="py-20 bg-background">
-            <div class="container mx-auto px-6">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 animate-fade-in">
                     <h2 class="text-4xl lg:text-5xl font-bold text-foreground mb-6">
                         Excellence in <span class="text-primary">Research Services</span>
@@ -517,7 +517,7 @@
             </div>
         </section>
         <section  class="py-20 bg-gradient-subtle">
-            <div class="container mx-auto px-6">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 animate-fade-in">
                     <h2 class="text-4xl lg:text-5xl font-bold text-foreground mb-6">
                         Our Research Portfolio
@@ -893,6 +893,41 @@
                     timeoutId = setTimeout(() => func.apply(this, args), delay);
                 };
             };
+            const searchState = { results: [], activeIndex: -1 };
+            const escapeRegExp = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const normalize = (text = '') => text.toLowerCase().trim();
+            const getRelevanceScore = (item, query) => {
+                const q = normalize(query);
+                if (!q) return 0;
+
+                const title = normalize(item.title);
+                const type = normalize(item.type);
+                const keywords = normalize(item.keywords);
+                const href = normalize(item.href);
+
+                let score = 0;
+                if (title === q) score += 120;
+                if (title.startsWith(q)) score += 90;
+                if (title.includes(q)) score += 70;
+                if (keywords.includes(q)) score += 45;
+                if (type.includes(q)) score += 25;
+                if (href.includes(q)) score += 10;
+
+                const terms = q.split(/\s+/).filter(Boolean);
+                terms.forEach((term) => {
+                    if (title.includes(term)) score += 16;
+                    if (keywords.includes(term)) score += 10;
+                    if (type.includes(term)) score += 6;
+                });
+                return score;
+            };
+            const highlightMatch = (text, query) => {
+                const safeText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                const q = normalize(query);
+                if (!q) return safeText;
+                const pattern = new RegExp(`(${escapeRegExp(q)})`, 'ig');
+                return safeText.replace(pattern, '<mark class="bg-academic-gold/35 text-foreground rounded px-0.5">$1</mark>');
+            };
 
             // --- State Management ---
             const toggleModal = (modalElement, show) => {
@@ -916,32 +951,88 @@
             };
 
             // --- Rendering ---
-            // UPDATED: Filter logic now includes keywords for more relevant results.
+            const setActiveSearchResult = (nextIndex) => {
+                const items = [...dom.searchResults.querySelectorAll('.search-result-item')];
+                if (!items.length) return;
+
+                const safeIndex = (nextIndex + items.length) % items.length;
+                searchState.activeIndex = safeIndex;
+                items.forEach((item, index) => {
+                    item.classList.toggle('bg-muted', index === safeIndex);
+                    item.classList.toggle('ring-1', index === safeIndex);
+                    item.classList.toggle('ring-accent/40', index === safeIndex);
+                });
+                items[safeIndex].scrollIntoView({ block: 'nearest' });
+            };
+
+            const navigateToResult = (href) => {
+                if (!href) return;
+                toggleModal(dom.searchModal, false);
+                dom.searchInput.value = '';
+                renderSearchResults('');
+
+                if (href.startsWith('#')) {
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        setTimeout(() => {
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            targetElement.classList.add('highlight-on-search');
+                            setTimeout(() => targetElement.classList.remove('highlight-on-search'), 2500);
+                        }, 150);
+                    }
+                } else {
+                    window.location.href = href;
+                }
+            };
+
             const renderSearchResults = (query) => {
                 dom.searchResults.innerHTML = '';
-                const lowerCaseQuery = query.toLowerCase();
+                const trimmedQuery = query.trim();
 
-                const filteredResults = searchData.filter(item =>
-                    item.title.toLowerCase().includes(lowerCaseQuery) ||
-                    item.type.toLowerCase().includes(lowerCaseQuery) ||
-                    item.keywords.toLowerCase().includes(lowerCaseQuery)
-                );
-
-                if (query && filteredResults.length > 0) {
+                if (!trimmedQuery) {
+                    const quickResults = searchData.slice(0, 6);
                     const fragment = document.createDocumentFragment();
-                    filteredResults.forEach(result => {
+                    quickResults.forEach((result) => {
                         const clone = dom.searchResultTemplate.content.cloneNode(true);
                         const button = clone.querySelector('.search-result-item');
-                        button.dataset.href = result.href; // Store href for navigation
+                        button.dataset.href = result.href;
                         clone.querySelector('.icon-svg').innerHTML = icons[result.icon] || icons.document;
                         clone.querySelector('.result-title').textContent = result.title;
-                        clone.querySelector('.result-type').textContent = result.type;
+                        clone.querySelector('.result-type').textContent = `${result.type} • Suggested`;
                         fragment.appendChild(clone);
                     });
                     dom.searchResults.appendChild(fragment);
+                    searchState.results = quickResults;
+                    searchState.activeIndex = -1;
+                    return;
+                }
+
+                const rankedResults = searchData
+                    .map((item) => ({ ...item, score: getRelevanceScore(item, trimmedQuery) }))
+                    .filter((item) => item.score > 0)
+                    .sort((a, b) => b.score - a.score || a.title.length - b.title.length)
+                    .slice(0, 10);
+
+                if (rankedResults.length > 0) {
+                    searchState.results = rankedResults;
+                    searchState.activeIndex = -1;
+                    const fragment = document.createDocumentFragment();
+                    rankedResults.forEach((result, index) => {
+                        const clone = dom.searchResultTemplate.content.cloneNode(true);
+                        const button = clone.querySelector('.search-result-item');
+                        button.dataset.href = result.href;
+                        button.dataset.index = index;
+                        clone.querySelector('.icon-svg').innerHTML = icons[result.icon] || icons.document;
+                        clone.querySelector('.result-title').innerHTML = highlightMatch(result.title, trimmedQuery);
+                        clone.querySelector('.result-type').textContent = `${result.type} • Best match`;
+                        fragment.appendChild(clone);
+                    });
+                    dom.searchResults.appendChild(fragment);
+                    setActiveSearchResult(0);
                 } else {
-                    const message = query ? 'No results found' : 'Search for services, research, etc.';
-                    dom.searchResults.innerHTML = `<p class="p-8 text-center text-muted-foreground">${message}</p>`;
+                    searchState.results = [];
+                    searchState.activeIndex = -1;
+                    dom.searchResults.innerHTML = '<p class="p-8 text-center text-muted-foreground">No strong matches found. Try broader keywords.</p>';
                 }
             };
 
@@ -968,43 +1059,42 @@
             });
 
             dom.searchInput.addEventListener('input', (e) => debouncedRender(e.target.value));
+            dom.searchResults.addEventListener('mousemove', (e) => {
+                const item = e.target.closest('.search-result-item');
+                if (!item || item.dataset.index === undefined) return;
+                setActiveSearchResult(Number(item.dataset.index));
+            });
             
-            // UPDATED: Click handler for search results to navigate to the content.
             dom.searchResults.addEventListener('click', (e) => {
                 const resultItem = e.target.closest('.search-result-item');
                 if (!resultItem) return;
-
-                const href = resultItem.dataset.href;
-                
-                // Close the modal and reset search input
-                toggleModal(dom.searchModal, false);
-                dom.searchInput.value = '';
-                renderSearchResults('');
-
-                // Handle navigation
-                if (href.startsWith('#')) {
-                    const targetElement = document.querySelector(href);
-                    if (targetElement) {
-                         // Delay scroll to allow modal to close smoothly
-                        setTimeout(() => {
-                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            // Add a temporary highlight effect
-                            targetElement.classList.add('highlight-on-search');
-                            setTimeout(() => {
-                               targetElement.classList.remove('highlight-on-search');
-                            }, 2500);
-                        }, 150);
-                    }
-                } else {
-                    // It's an external link
-                    window.location.href = href;
-                }
+                const index = resultItem.dataset.index !== undefined ? Number(resultItem.dataset.index) : -1;
+                const selected = index >= 0 ? searchState.results[index] : null;
+                navigateToResult(selected?.href || resultItem.dataset.href);
             });
 
             document.addEventListener('keydown', (e) => {
                 if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
                     e.preventDefault();
                     toggleModal(dom.searchModal, dom.searchModal.classList.contains('hidden'));
+                }
+                if (!dom.searchModal.classList.contains('hidden')) {
+                    if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        setActiveSearchResult(searchState.activeIndex + 1);
+                        return;
+                    }
+                    if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        setActiveSearchResult(searchState.activeIndex - 1);
+                        return;
+                    }
+                    if (e.key === 'Enter' && searchState.results.length > 0) {
+                        e.preventDefault();
+                        const chosenIndex = searchState.activeIndex >= 0 ? searchState.activeIndex : 0;
+                        navigateToResult(searchState.results[chosenIndex]?.href);
+                        return;
+                    }
                 }
                 if (e.key === 'Escape') {
                     if (!dom.searchModal.classList.contains('hidden')) toggleModal(dom.searchModal, false);

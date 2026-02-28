@@ -115,11 +115,11 @@
         <div class="container mx-auto px-4 lg:px-6">
             <div class="flex items-center justify-between h-16">
                 <a href="index.html" class="flex-shrink-0 flex items-center space-x-2">
-                    <img class="md:w-18 w-14 rounded-xl" src="images/logo.png" alt="agency logo">
-                    <span class="md:text-xl text-sm font-bold text-white">Apex Scholarly Solutions</span>
+                    <img class="w-12 sm:w-14 lg:w-16 rounded-xl" src="images/logo.png" alt="agency logo">
+                    <span class="text-xs sm:text-sm lg:text-base xl:text-xl font-bold text-white">Apex Scholarly Solutions</span>
                 </a>
 
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden xl:flex items-center space-x-8">
                     <a href="index.html" class="text-white hover:text-academic-gold transition-colors duration-200 font-medium">Home</a>
                     <a href="consultancy.html" class="text-academic-gold hover:text-white transition-colors duration-200 font-bold">Consultation</a>
                     <a href="published-works.html" class="text-white hover:text-academic-gold transition-colors duration-200 font-medium">Published Works</a>
@@ -128,15 +128,15 @@
                 </div>
 
                 <div class="flex items-center space-x-2 sm:space-x-4">
-                    <button id="searchBtn" class="hidden sm:flex items-center space-x-2 min-w-[200px] justify-start text-muted-foreground hover:text-foreground border border-border bg-muted rounded-lg px-3 py-2 transition-colors duration-200">
+                    <button id="searchBtn" class="hidden xl:flex items-center space-x-2 min-w-[180px] xl:min-w-[220px] justify-start text-muted-foreground hover:text-foreground border border-border bg-muted rounded-lg px-3 py-2 transition-colors duration-200">
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                         <span class="text-sm">Search...</span>
                         <kbd class="ml-auto px-2 py-1 text-xs bg-background rounded text-muted-foreground">⌘K</kbd>
                     </button>
-                    <button id="mobileSearchBtn" class="sm:hidden p-2 text-white hover:bg-white/20 rounded-lg transition-colors">
+                    <button id="mobileSearchBtn" class="xl:hidden p-2 text-white hover:bg-white/20 rounded-lg transition-colors">
                         <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                     </button>
-                    <button id="mobileMenuBtn" class="md:hidden p-2 text-white hover:bg-white/20 rounded-lg transition-colors">
+                    <button id="mobileMenuBtn" class="xl:hidden p-2 text-white hover:bg-white/20 rounded-lg transition-colors">
                         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
                 </div>
@@ -258,7 +258,7 @@
                         We specialize in providing comprehensive support for researchers and academics at every stage of their career.
                     </p>
                 </div>
-                <div class="grid md:grid-cols-3 gap-8">
+                <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
                     <div class="bg-white rounded-lg p-6 shadow-elegant hover-scale border-0 animate-fade-in">
                         <div class="text-center pb-4">
                             <div class="mx-auto mb-4 p-3 rounded-full bg-primary/10 w-fit">
@@ -496,10 +496,10 @@
             };
 
             const searchData = [
-                { id: 1, title: 'Home Page', type: 'Link', icon: 'home', url: 'index.html' },
-                { id: 2, title: 'Book a Consultation', type: 'Link', icon: 'calendar', url: 'consultancy.html' },
-                { id: 3, title: 'Our Research', type: 'Link', icon: 'file-text', url: 'published-works.html' },
-                { id: 4, title: 'Academic Services', type: 'Link', icon: 'graduation-cap', url: 'index.html#next-section' },
+                { id: 1, title: 'Home Page', type: 'Link', icon: 'home', url: 'index.html', keywords: 'landing main homepage apex' },
+                { id: 2, title: 'Book a Consultation', type: 'Link', icon: 'calendar', url: 'consultancy.html', keywords: 'consult meeting booking call form' },
+                { id: 3, title: 'Our Research', type: 'Link', icon: 'file-text', url: 'published-works.html', keywords: 'papers published works portfolio archive' },
+                { id: 4, title: 'Academic Services', type: 'Link', icon: 'graduation-cap', url: 'index.html#next-section', keywords: 'services support research writing analysis' },
             ];
 
             const icons = {
@@ -515,6 +515,41 @@
                     clearTimeout(timeoutId);
                     timeoutId = setTimeout(() => func.apply(this, args), delay);
                 };
+            };
+            const searchState = { results: [], activeIndex: -1 };
+            const escapeRegExp = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const normalize = (text = '') => text.toLowerCase().trim();
+            const getRelevanceScore = (item, query) => {
+                const q = normalize(query);
+                if (!q) return 0;
+
+                const title = normalize(item.title);
+                const type = normalize(item.type);
+                const keywords = normalize(item.keywords);
+                const href = normalize(item.url);
+
+                let score = 0;
+                if (title === q) score += 120;
+                if (title.startsWith(q)) score += 90;
+                if (title.includes(q)) score += 70;
+                if (keywords.includes(q)) score += 45;
+                if (type.includes(q)) score += 25;
+                if (href.includes(q)) score += 10;
+
+                const terms = q.split(/\s+/).filter(Boolean);
+                terms.forEach((term) => {
+                    if (title.includes(term)) score += 16;
+                    if (keywords.includes(term)) score += 10;
+                    if (type.includes(term)) score += 6;
+                });
+                return score;
+            };
+            const highlightMatch = (text, query) => {
+                const safeText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                const q = normalize(query);
+                if (!q) return safeText;
+                const pattern = new RegExp(`(${escapeRegExp(q)})`, 'ig');
+                return safeText.replace(pattern, '<mark class="bg-academic-gold/35 text-foreground rounded px-0.5">$1</mark>');
             };
             
             const toggleModal = (modalElement, show) => {
@@ -537,25 +572,74 @@
                 }
             };
 
+            const setActiveSearchResult = (nextIndex) => {
+                const items = [...navbarDom.searchResults.querySelectorAll('.search-result-item')];
+                if (!items.length) return;
+
+                const safeIndex = (nextIndex + items.length) % items.length;
+                searchState.activeIndex = safeIndex;
+                items.forEach((item, index) => {
+                    item.classList.toggle('bg-muted', index === safeIndex);
+                    item.classList.toggle('ring-1', index === safeIndex);
+                    item.classList.toggle('ring-accent/40', index === safeIndex);
+                });
+                items[safeIndex].scrollIntoView({ block: 'nearest' });
+            };
+
+            const navigateToResult = (url) => {
+                if (!url) return;
+                toggleModal(navbarDom.searchModal, false);
+                window.location.href = url;
+            };
+
             const renderSearchResults = (query) => {
                 navbarDom.searchResults.innerHTML = '';
-                const lowerCaseQuery = query.toLowerCase();
-                const filteredResults = searchData.filter(item => item.title.toLowerCase().includes(lowerCaseQuery));
+                const trimmedQuery = query.trim();
 
-                if (query && filteredResults.length > 0) {
+                if (!trimmedQuery) {
+                    const quickResults = searchData;
                     const fragment = document.createDocumentFragment();
-                    filteredResults.forEach(result => {
+                    quickResults.forEach((result) => {
                         const clone = navbarDom.searchResultTemplate.content.cloneNode(true);
                         const button = clone.querySelector('.search-result-item');
                         button.dataset.url = result.url;
                         clone.querySelector('.icon-svg').innerHTML = icons[result.icon] || icons['file-text'];
                         clone.querySelector('.result-title').textContent = result.title;
-                        clone.querySelector('.result-type').textContent = result.type;
+                        clone.querySelector('.result-type').textContent = `${result.type} • Suggested`;
                         fragment.appendChild(clone);
                     });
                     navbarDom.searchResults.appendChild(fragment);
+                    searchState.results = quickResults;
+                    searchState.activeIndex = -1;
+                    return;
+                }
+
+                const rankedResults = searchData
+                    .map((item) => ({ ...item, score: getRelevanceScore(item, trimmedQuery) }))
+                    .filter((item) => item.score > 0)
+                    .sort((a, b) => b.score - a.score || a.title.length - b.title.length)
+                    .slice(0, 8);
+
+                if (rankedResults.length > 0) {
+                    searchState.results = rankedResults;
+                    searchState.activeIndex = -1;
+                    const fragment = document.createDocumentFragment();
+                    rankedResults.forEach((result, index) => {
+                        const clone = navbarDom.searchResultTemplate.content.cloneNode(true);
+                        const button = clone.querySelector('.search-result-item');
+                        button.dataset.url = result.url;
+                        button.dataset.index = index;
+                        clone.querySelector('.icon-svg').innerHTML = icons[result.icon] || icons['file-text'];
+                        clone.querySelector('.result-title').innerHTML = highlightMatch(result.title, trimmedQuery);
+                        clone.querySelector('.result-type').textContent = `${result.type} • Best match`;
+                        fragment.appendChild(clone);
+                    });
+                    navbarDom.searchResults.appendChild(fragment);
+                    setActiveSearchResult(0);
                 } else {
-                    navbarDom.searchResults.innerHTML = `<p class="p-8 text-center text-muted-foreground">${query ? 'No results found' : 'Start typing to search...'}</p>`;
+                    searchState.results = [];
+                    searchState.activeIndex = -1;
+                    navbarDom.searchResults.innerHTML = '<p class="p-8 text-center text-muted-foreground">No strong matches found. Try broader keywords.</p>';
                 }
             };
 
@@ -577,19 +661,42 @@
                 
                 navbarDom.mobilePanel.querySelectorAll('a').forEach(link => link.addEventListener('click', () => toggleMobileMenu(false)));
                 navbarDom.searchInput.addEventListener('input', (e) => debouncedRender(e.target.value));
+                navbarDom.searchResults.addEventListener('mousemove', (e) => {
+                    const item = e.target.closest('.search-result-item');
+                    if (!item || item.dataset.index === undefined) return;
+                    setActiveSearchResult(Number(item.dataset.index));
+                });
 
                 navbarDom.searchResults.addEventListener('click', (e) => {
                     const resultItem = e.target.closest('.search-result-item');
-                    if (resultItem && resultItem.dataset.url) {
-                        window.location.href = resultItem.dataset.url;
-                        toggleModal(navbarDom.searchModal, false);
-                    }
+                    if (!resultItem) return;
+                    const index = resultItem.dataset.index !== undefined ? Number(resultItem.dataset.index) : -1;
+                    const selected = index >= 0 ? searchState.results[index] : null;
+                    navigateToResult(selected?.url || resultItem.dataset.url);
                 });
                 
                 document.addEventListener('keydown', (e) => {
                     if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
                         e.preventDefault();
                         toggleModal(navbarDom.searchModal, navbarDom.searchModal.classList.contains('hidden'));
+                    }
+                    if (!navbarDom.searchModal.classList.contains('hidden')) {
+                        if (e.key === 'ArrowDown') {
+                            e.preventDefault();
+                            setActiveSearchResult(searchState.activeIndex + 1);
+                            return;
+                        }
+                        if (e.key === 'ArrowUp') {
+                            e.preventDefault();
+                            setActiveSearchResult(searchState.activeIndex - 1);
+                            return;
+                        }
+                        if (e.key === 'Enter' && searchState.results.length > 0) {
+                            e.preventDefault();
+                            const chosenIndex = searchState.activeIndex >= 0 ? searchState.activeIndex : 0;
+                            navigateToResult(searchState.results[chosenIndex]?.url);
+                            return;
+                        }
                     }
                     if (e.key === 'Escape') {
                         if (!navbarDom.searchModal.classList.contains('hidden')) toggleModal(navbarDom.searchModal, false);
